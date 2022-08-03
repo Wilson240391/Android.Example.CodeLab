@@ -16,8 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import eu.tutorials.composematerialdesignsamples.domain.models.DrawerMenuData
 import eu.tutorials.composematerialdesignsamples.R
+import eu.tutorials.composematerialdesignsamples.views.screens.Navigation.DrawerMenuData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

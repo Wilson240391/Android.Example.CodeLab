@@ -13,6 +13,7 @@ import eu.tutorials.composematerialdesignsamples.views.components.*
 import eu.tutorials.composematerialdesignsamples.network.model.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.views.screens.*
 import eu.tutorials.composematerialdesignsamples.views.screens.Countries.NavCountries
+import eu.tutorials.composematerialdesignsamples.views.screens.Movies.MoviesList
 
 @Composable
 fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
@@ -24,19 +25,19 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
     articles.addAll(topArticle ?: listOf(TopNewsArticle()))
     NavHost(
         navController = navController,
-        startDestination = BottomMenuData.Categories.route,
+        startDestination = DrawerMenuData.Categories.route,
         modifier = Modifier.padding(paddingValues = paddingValues)
     ) {
         val queryState = mutableStateOf(viewModel.query.value)
         val isLoading = mutableStateOf(loading)
         val isError = mutableStateOf(error)
-        composable(BottomMenuData.TopNewsDummy.route) {
+        composable(DrawerMenuData.TopNewsDummy.route) {
             TopNewsDummy(navController = navController)
         }
-        composable(BottomMenuData.TopNewsApi.route) {
+        composable(DrawerMenuData.TopNews.route) {
             TopNewsApi(navController = navController, articles, queryState, viewModel = viewModel, isLoading, isError)
         }
-        composable(BottomMenuData.Categories.route) {
+        composable(DrawerMenuData.Categories.route) {
             viewModel.getArticlesByCategory("business")
             viewModel.onSelectedCategoryChanged("business")
             Categories(viewModel = viewModel, onFetchCategory = {
@@ -44,7 +45,7 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
                 viewModel.getArticlesByCategory(it)
             }, isError = isError, isLoading = isLoading)
         }
-        composable(BottomMenuData.Sources.route) {
+        composable(DrawerMenuData.Sources.route) {
             Sources(viewModel = viewModel, isLoading, isError)
         }
         composable("DetailApi/{index}",
@@ -75,11 +76,14 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
         }
 
         //menu options
-        composable(BottomMenuData.Countries.route) {
+        composable(DrawerMenuData.Countries.route) {
             NavCountries()
         }
-        composable(BottomMenuData.MailList.route) {
+        composable(DrawerMenuData.Mail.route) {
             MailList(paddingValues, scrollState, navController = navController)
+        }
+        composable(DrawerMenuData.Movies.route) {
+            MoviesList()
         }
     }
 }

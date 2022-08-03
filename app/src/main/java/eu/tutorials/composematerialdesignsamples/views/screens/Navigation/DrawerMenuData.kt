@@ -11,11 +11,11 @@ import androidx.compose.ui.res.colorResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import eu.tutorials.composematerialdesignsamples.R
-import eu.tutorials.composematerialdesignsamples.views.screens.Navigation.BottomMenuData
+import eu.tutorials.composematerialdesignsamples.views.screens.Navigation.DrawerMenuData
 
 @Composable
 fun BottomMenu(navController: NavController) {
-    val items = listOf(BottomMenuData.Categories, BottomMenuData.Sources)
+    val items = listOf(DrawerMenuData.Categories, DrawerMenuData.Sources)
     BottomNavigation(backgroundColor = colorResource(id = R.color.white),contentColor = colorResource(id = R.color.black))
     {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
