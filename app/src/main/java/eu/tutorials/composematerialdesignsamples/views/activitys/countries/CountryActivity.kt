@@ -2,59 +2,63 @@ package eu.tutorials.composematerialdesignsamples.views.activitys.countries
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.databinding.ActivityCountryBinding
 import eu.tutorials.composematerialdesignsamples.databinding.ItemCountryBinding
 
-class CountryActivity : AppCompatActivity() {
+class CountryActivity : Fragment() {
 
-    private var mBinding: ActivityCountryBinding? = null
-    lateinit var viewModel: CountryViewModel
-    private val countriesAdapter = CountryListAdapter()
+    private lateinit var mBinding: ActivityCountryBinding
+    private lateinit var viewModel: CountryViewModel
+    private lateinit var countriesAdapter: CountryListAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_country)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        mBinding = ActivityCountryBinding.inflate(inflater, container, false)
+        return mBinding!!.root
+    }
 
-        mBinding = ActivityCountryBinding.inflate(layoutInflater)
-
-        viewModel = ViewModelProviders.of(this).get(CountryViewModel::class.java)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Initialize the ViewModel variable.
+        viewModel = ViewModelProvider(this).get(CountryViewModel::class.java)
         viewModel.refresh()
-
-        mBinding!!.countriesList.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = countriesAdapter
-        }
-
-        mBinding!!.swipeRefreshLayout.setOnRefreshListener {
-            mBinding!!.swipeRefreshLayout.isRefreshing = false
-            viewModel.refresh()
-        }
-
+        mBinding.countriesList.adapter = CountryListAdapter(this@CountryActivity)
         observeViewModel()
+        //        mBinding!!.swipeRefreshLayout.setOnRefreshListener {
+//            mBinding!!.swipeRefreshLayout.isRefreshing = false
+//            viewModel.refresh()
+//        }
     }
 
     fun observeViewModel() {
-        viewModel.countries.observe(this, Observer {countries ->
+        viewModel.countries.observe(viewLifecycleOwner, Observer {countries ->
             countries?.let {
-                mBinding!!.countriesList.visibility = View.VISIBLE
+                mBinding.countriesList.visibility = View.VISIBLE
                 countriesAdapter.updateCountries(it) }
         })
 
-        viewModel.countryLoadError.observe(this, Observer { isError ->
-            isError?.let { mBinding!!.listError.visibility = if(it) View.VISIBLE else View.GONE }
+        viewModel.countryLoadError.observe(viewLifecycleOwner, Observer { isError ->
+            isError?.let { mBinding.listError.visibility = if(it) View.VISIBLE else View.GONE }
         })
 
-        viewModel.loading.observe(this, Observer { isLoading ->
+        viewModel.loading.observe(viewLifecycleOwner, Observer { isLoading ->
             isLoading?.let {
-                mBinding!!.loadingView.visibility = if(it) View.VISIBLE else View.GONE
+                mBinding.loadingView.visibility = if(it) View.VISIBLE else View.GONE
                 if(it) {
-                    mBinding!!.listError.visibility = View.GONE
-                    mBinding!!.countriesList.visibility = View.GONE
+                    mBinding.listError.visibility = View.GONE
+                    //mBinding.countriesList.visibility = View.GONE
                 }
             }
         })

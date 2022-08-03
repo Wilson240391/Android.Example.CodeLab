@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.views.screens.countries
+package eu.tutorials.composematerialdesignsamples.views.screens.Countries
 
 import android.content.Intent
 import androidx.compose.runtime.Composable
