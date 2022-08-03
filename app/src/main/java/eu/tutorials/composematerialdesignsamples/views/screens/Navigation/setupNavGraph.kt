@@ -24,15 +24,12 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
     articles.addAll(topArticle ?: listOf(TopNewsArticle()))
     NavHost(
         navController = navController,
-        startDestination = BottomMenuData.TopNewsApi.route,
+        startDestination = BottomMenuData.Categories.route,
         modifier = Modifier.padding(paddingValues = paddingValues)
     ) {
         val queryState = mutableStateOf(viewModel.query.value)
         val isLoading = mutableStateOf(loading)
         val isError = mutableStateOf(error)
-        composable(BottomMenuData.MailList.route) {
-            MailList(paddingValues, scrollState, navController = navController)
-        }
         composable(BottomMenuData.TopNewsDummy.route) {
             TopNewsDummy(navController = navController)
         }
@@ -76,8 +73,13 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
             val newsData = NewsData.getNews(id)
             DetailScreen(newsData, scrollState, navController)
         }
+
+        //menu options
         composable(BottomMenuData.Countries.route) {
             NavCountries()
+        }
+        composable(BottomMenuData.MailList.route) {
+            MailList(paddingValues, scrollState, navController = navController)
         }
     }
 }

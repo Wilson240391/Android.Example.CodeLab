@@ -6,14 +6,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class DrawerMenuData(var route: String?, val icon: ImageVector? = null, val title:String? = null, val isDivider:Boolean=false, val isHeader:Boolean = false){
     object Countries: DrawerMenuData("Countries", icon = Icons.Outlined.AllInbox, title = "Countries")
-    object Primary: DrawerMenuData("Countries",
-        icon = Icons.Outlined.Inbox,
-        title = "Primary"
-    )
-    object Social: DrawerMenuData("Countries",
-        icon = Icons.Outlined.Person,
-        title = "Social"
-    )
+    object Mail: DrawerMenuData("mail list", icon = Icons.Outlined.Mail, title = "mails")
+    object TopNews: DrawerMenuData("top news api", icon = Icons.Outlined.Home, title = "Top News")
+
     object Promotions: DrawerMenuData("Countries",
         icon = Icons.Outlined.Tag,
         title = "Promotions",

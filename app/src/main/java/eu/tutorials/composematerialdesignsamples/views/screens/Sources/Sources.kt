@@ -1,5 +1,6 @@
 package eu.tutorials.composematerialdesignsamples.views.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -29,12 +30,13 @@ import eu.tutorials.composematerialdesignsamples.views.components.LoadingUI
 
 @Composable
 fun Sources(viewModel: MainViewModel, isLoading: MutableState<Boolean>, isError: MutableState<Boolean>) {
-    val items = listOf("TechCrunch" to "techcrunch", "TalkSport" to "talksport", "SABQ" to "sabq",
-        "Reuters" to "reuters", "Politico" to "politico", "TheVerge" to "verge"
+    val items = listOf("List" to "techcrunch", "Games" to "talksport", "Algorim" to "sabq",
+        "Logical" to "reuters", "numbers" to "politico", "calculate" to "verge"
     )
     Scaffold(topBar={
         TopAppBar(
-            title = { Text(text = "${viewModel.sourceName.value} Source") },
+            //title = { Text(text = "${viewModel.sourceName.value} Source") },
+            title = { Text(text = "Examples CodeLabs") },
             actions = {
                 var menuExpanded by remember { mutableStateOf(false) }
                 IconButton(onClick = { menuExpanded = true }) {
@@ -89,11 +91,11 @@ fun SourceContent(articles:List<TopNewsArticle>) {
                     annotation = article.url ?: "newsapi.org"
                 )
                 withStyle(style = SpanStyle(color = colorResource(id = R.color.purple_500),textDecoration = TextDecoration.Underline)) {
-                    append("Read Full Article Here")
+                    append("Make a Example")
                 }
                 pop()
             }
-            Card(backgroundColor = colorResource(id = R.color.purple_700),elevation = 6.dp, modifier = Modifier.padding(8.dp)) {
+            Card(elevation = 6.dp, modifier = Modifier.padding(8.dp),border = BorderStroke(2.dp,color = colorResource(id = R.color.purple_500))) {
                 Column(modifier = Modifier
                     .height(200.dp)
                     .padding(end = 8.dp, start = 8.dp),verticalArrangement = Arrangement.SpaceEvenly) {

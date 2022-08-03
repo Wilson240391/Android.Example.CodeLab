@@ -1,5 +1,6 @@
 package eu.tutorials.composematerialdesignsamples.views.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -75,7 +76,8 @@ fun TopNewsItemApi(article: TopNewsArticle,onNewsClick: () -> Unit = {},) {
             contentScale = ContentScale.Crop,
             error = ImageBitmap.imageResource(R.drawable.breaking_news),
             // shows a placeholder ImageBitmap when loading.
-            placeHolder = ImageBitmap.imageResource(R.drawable.breaking_news)
+            placeHolder = ImageBitmap.imageResource(R.drawable.breaking_news),
+            modifier = Modifier.fillMaxWidth()
         )
         Column(modifier = Modifier
             .wrapContentHeight()
@@ -93,14 +95,15 @@ fun TopNewsItemApi(article: TopNewsArticle,onNewsClick: () -> Unit = {},) {
         }}
 }
 
-
-@Preview(showBackground = true)
+@Preview(showBackground = false)
 @Composable
 fun TopNewsPreview() {
-    TopNewsItemApi(  TopNewsArticle(
-        author = "Namita Singh",
-        title = "Cleo Smith news — live: Kidnap suspect 'in hospital again' as 'hard police grind' credited for breakthrough - The Independent",
-        description = "The suspected kidnapper of four-year-old Cleo Smith has been treated in hospital for a second time amid reports he was “attacked” while in custody.",
-        publishedAt = "2021-11-04T04:42:40Z"
-    ))
+    TopNewsItemApi(  article =
+        TopNewsArticle(
+            author = "Namita Singh",
+            title = "Cleo Smith news — live: Kidnap suspect 'in hospital again' as 'hard police grind' credited for breakthrough - The Independent",
+            description = "The suspected kidnapper of four-year-old Cleo Smith has been treated in hospital for a second time amid reports he was “attacked” while in custody.",
+            publishedAt = "2021-11-04T04:42:40Z"
+        )
+    )
 }

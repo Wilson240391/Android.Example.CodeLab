@@ -36,7 +36,7 @@ Box(modifier = Modifier.padding(10.dp)) {
         ) {
             IconButton(onClick = { scope.launch { scaffoldState.drawerState.open() }
             }) { Icon(Icons.Default.Menu, "Menu") }
-            Text(text = "Search in mail", modifier = Modifier.weight(2.0f))
+            Text(text = "Kotlin Examples", modifier = Modifier.weight(2.0f))
             Image(
                 painter = painterResource(id = R.drawable.tutorials),
                 contentDescription = "Profile",

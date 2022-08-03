@@ -15,7 +15,7 @@ import eu.tutorials.composematerialdesignsamples.views.screens.Navigation.Bottom
 
 @Composable
 fun BottomMenu(navController: NavController) {
-    val items = listOf(BottomMenuData.TopNewsApi, BottomMenuData.MailList, BottomMenuData.Categories, BottomMenuData.Sources)
+    val items = listOf(BottomMenuData.Categories, BottomMenuData.Sources)
     BottomNavigation(backgroundColor = colorResource(id = R.color.white),contentColor = colorResource(id = R.color.black))
     {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
