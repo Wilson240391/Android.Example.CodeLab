@@ -26,13 +26,18 @@ fun GmailDrawerMenu(dp: Dp = 8.dp, scrollState: ScrollState, navController: NavC
                     scaffoldState: ScaffoldState, scope: CoroutineScope
 ){
     val menuList = listOf(
+        //JetPack
         DrawerMenuData.Divider,
-        DrawerMenuData.Countries,
-        DrawerMenuData.Divider,
+        DrawerMenuData.JetPack,
         DrawerMenuData.Mail,
         DrawerMenuData.TopNews,
         DrawerMenuData.Promotions,
-        DrawerMenuData.HeaderOne,
+        //Xml
+        DrawerMenuData.Divider,
+        DrawerMenuData.Xml,
+        DrawerMenuData.Countries,
+        //others
+        DrawerMenuData.Divider,
         DrawerMenuData.Starred,
         DrawerMenuData.Snoozed,
         DrawerMenuData.Important,
@@ -41,9 +46,6 @@ fun GmailDrawerMenu(dp: Dp = 8.dp, scrollState: ScrollState, navController: NavC
         DrawerMenuData.Outbox,
         DrawerMenuData.Draft,
         DrawerMenuData.AllMail,
-        DrawerMenuData.HeaderTwo,
-        DrawerMenuData.Calendar,
-        DrawerMenuData.Contacts,
         DrawerMenuData.Divider,
         DrawerMenuData.Setting,
         DrawerMenuData.Help

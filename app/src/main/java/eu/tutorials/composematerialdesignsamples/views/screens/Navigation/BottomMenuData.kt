@@ -11,12 +11,12 @@ sealed class DrawerMenuData(val route: String, val icon: ImageVector, val title:
     object Sources : DrawerMenuData("sources", icon = Icons.Outlined.Source, "CodeLabs")
 
     //DrawerMenu
-    object Countries : DrawerMenuData("countries", icon = Icons.Outlined.AllInbox, "Countries XML")
-    object Mail : DrawerMenuData("mail list", icon = Icons.Outlined.Mail,"Mails JetPack")
+    object Countries : DrawerMenuData("countries", icon = Icons.Outlined.AllInbox, "Countries")
+    object Mail : DrawerMenuData("mail list", icon = Icons.Outlined.Mail,"Mails")
     object TopNewsDummy : DrawerMenuData("top news dummy", icon = Icons.Outlined.Home, "Dummy")
-    object TopNews : DrawerMenuData("top news api", icon = Icons.Outlined.Home, "Top News JetPack")
-    object Movies : DrawerMenuData("top news api", icon = Icons.Outlined.Outbox, "Movies JetPack")
-    object Promotions: DrawerMenuData("Movies", icon = Icons.Outlined.Tag, title = "Movies JetPack",)
+    object TopNews : DrawerMenuData("top news api", icon = Icons.Outlined.Home, "Top News")
+    object Movies : DrawerMenuData("top news api", icon = Icons.Outlined.Outbox, "Movies")
+    object Promotions: DrawerMenuData("Movies", icon = Icons.Outlined.Tag, title = "Movies",)
 
     object Starred: DrawerMenuData("Countries", icon = Icons.Outlined.StarOutline, title = "Starred")
     object Snoozed: DrawerMenuData("Countries", icon = Icons.Outlined.Snooze, title = "Snoozed")
@@ -31,7 +31,7 @@ sealed class DrawerMenuData(val route: String, val icon: ImageVector, val title:
     object Setting: DrawerMenuData("Countries", icon = Icons.Outlined.Settings, title = "Settings")
     object Help: DrawerMenuData("Countries", icon = Icons.Outlined.Help, title = "Help & FeedBack")
     object Divider: DrawerMenuData("Countries", isDivider = true, icon = Icons.Outlined.Help, title = "Divider")
-    object HeaderOne: DrawerMenuData("Countries", isHeader = true, title = "ALL LABELS", icon = Icons.Outlined.Help)
-    object HeaderTwo: DrawerMenuData("Countries", isHeader = true, title = "GOOGLE APPS", icon = Icons.Outlined.Help)
+    object JetPack: DrawerMenuData("Countries", isHeader = true, title = "Jet Pack Compose", icon = Icons.Outlined.Help)
+    object Xml: DrawerMenuData("Countries", isHeader = true, title = "XML", icon = Icons.Outlined.Help)
 }
 
