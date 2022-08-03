@@ -24,6 +24,7 @@ import eu.tutorials.composematerialdesignsamples.views.screens.Navigation.Bottom
 import eu.tutorials.composematerialdesignsamples.network.model.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.views.screens.*
 import eu.tutorials.composematerialdesignsamples.ui.theme.ComposeMaterialDesignSamplesTheme
+import eu.tutorials.composematerialdesignsamples.views.screens.countries.NavCountries
 
 @Composable
 fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
@@ -86,6 +87,9 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
             val id = navBackStackEntry.arguments?.getInt("newsId")
             val newsData = NewsData.getNews(id)
             DetailScreen(newsData, scrollState, navController)
+        }
+        composable(BottomMenuData.Countries.route) {
+            NavCountries()
         }
     }
 }

@@ -10,4 +10,5 @@ sealed class BottomMenuData(val route: String, val icon: ImageVector, val title:
     object TopNewsApi : BottomMenuData("top news api", icon = Icons.Outlined.Home, "Top News")
     object Categories : BottomMenuData("categories", icon = Icons.Outlined.Category, "Categories")
     object Sources : BottomMenuData("sources", icon = Icons.Outlined.Source, "Sources")
+    object Countries : BottomMenuData("countries", icon = Icons.Outlined.AllInbox, "Countries")
 }

@@ -49,18 +49,18 @@ fun MainScreen(viewModel: MainViewModel) {
     val coroutineScope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
     val navController = rememberNavController()
+    val scope = rememberCoroutineScope()
     val openDialog = remember {
         mutableStateOf(false)
     }
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {HomeAppBar(scaffoldState, coroutineScope, openDialog)},
-        drawerContent = { GmailDrawerMenu(10.dp, scrollState) },
+        drawerContent = { GmailDrawerMenu(10.dp, scrollState, navController = navController, scaffoldState, scope) },
         bottomBar = { BottomMenu(navController = navController) },
         floatingActionButton = {GmailFab(scrollState)}
         ) {
         setupNavGraph(navController, scrollState = scrollState, it, viewModel)
-
     }
 }
 
