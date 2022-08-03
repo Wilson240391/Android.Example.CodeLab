@@ -1,15 +1,15 @@
-package eu.tutorials.composematerialdesignsamples.domain.network
+package eu.tutorials.composematerialdesignsamples.di
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import eu.tutorials.composematerialdesignsamples.data.repository.NewsService
+import eu.tutorials.composematerialdesignsamples.data.repository.NewsApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-object Api {
+object ApiModuleNews {
 
     private val BASE_URL = "https://newsapi.org/v2/"
     private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
@@ -34,5 +34,5 @@ object Api {
         .client(httpClient)
         .build()
 
-    val retrofitService: NewsService by lazy { retrofit.create(NewsService::class.java) }
+    val retrofitService: NewsApi by lazy { retrofit.create(NewsApi::class.java) }
 }

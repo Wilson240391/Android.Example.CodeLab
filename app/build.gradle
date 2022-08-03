@@ -50,7 +50,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
@@ -60,12 +59,21 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.3.1'
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "com.github.skydoves:landscapist-coil:1.4.1"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     //Lifecycle components
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    def lifeCycleExtensionsVersion = '1.1.1'
+    def lifeCycleRuntimeVersion = '2.3.1'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleRuntimeVersion"
+    implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionsVersion"
 
     //Navigation
-    implementation("androidx.navigation:navigation-compose:2.4.0-beta02")
+    def navigation = '2.5.1'
+    def navigationCompose = '2.4.0-beta02'
+    implementation "androidx.navigation:navigation-compose:$navigationCompose"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation"
 
     //Dependency Injection
     def daggerVersion = '2.13'
@@ -74,13 +82,11 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
-    def lifeCycleExtensionsVersion = '1.1.1'
-    implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionsVersion"
-
     // Retrofit and http
     def retrofitVersion = '2.9.0'
     def moshiVersion = '1.9.3'
     def rxJavaVersion = '2.0.1'
+    def okhttp = '4.7.2'
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -88,12 +94,7 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
-
-    def supportVersion = '28.0.0'
-    implementation "com.android.support:recyclerview-v7:$supportVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
 
     //Image Load
     def glideVersion = '4.8.0'

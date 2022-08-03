@@ -23,8 +23,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import eu.tutorials.composematerialdesignsamples.domain.network.Api
-import eu.tutorials.composematerialdesignsamples.domain.network.NewsManager
 import eu.tutorials.composematerialdesignsamples.views.screens.MainViewModel
 
 @Composable

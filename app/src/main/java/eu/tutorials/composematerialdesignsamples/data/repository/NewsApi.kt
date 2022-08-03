@@ -6,7 +6,7 @@ import retrofit2.Callback
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface NewsService {
+interface NewsApi {
 
     @GET("top-headlines")
     suspend fun getTopArticles(@Query("country") country:String): TopNewsResponse

@@ -1,13 +1,11 @@
 package eu.tutorials.composematerialdesignsamples.domain.network
 
-import android.util.Log
-import androidx.compose.runtime.*
-import eu.tutorials.composematerialdesignsamples.data.repository.NewsService
+import eu.tutorials.composematerialdesignsamples.data.repository.NewsApi
 import eu.tutorials.composematerialdesignsamples.domain.models.TopNewsResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class NewsManager(private val service: NewsService) {
+class NewsService(private val service: NewsApi) {
 
     suspend fun getArticles(country:String):TopNewsResponse = withContext(Dispatchers.IO){
         service.getTopArticles(country)

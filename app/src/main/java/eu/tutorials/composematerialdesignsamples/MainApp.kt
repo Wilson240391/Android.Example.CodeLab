@@ -2,13 +2,13 @@ package eu.tutorials.composematerialdesignsamples
 
 import android.app.Application
 import eu.tutorials.composematerialdesignsamples.data.repository.RepositoryApi
-import eu.tutorials.composematerialdesignsamples.domain.network.Api
-import eu.tutorials.composematerialdesignsamples.domain.network.NewsManager
+import eu.tutorials.composematerialdesignsamples.di.ApiModuleNews
+import eu.tutorials.composematerialdesignsamples.domain.network.NewsService
 
 class MainApp: Application() {
 
     private val manager by lazy {
-        NewsManager(Api.retrofitService)
+        NewsService(ApiModuleNews.retrofitService)
     }
 
     val repositoryApi by lazy {

@@ -4,7 +4,7 @@ import dagger.Component
 import eu.tutorials.composematerialdesignsamples.domain.network.CountriesService
 import eu.tutorials.composematerialdesignsamples.views.activitys.countries.CountryViewModel
 
-@Component(modules = [ApiModule::class])
+@Component(modules = [ApiModuleCountry::class])
 interface ApiComponent {
 
     fun inject(service: CountriesService)

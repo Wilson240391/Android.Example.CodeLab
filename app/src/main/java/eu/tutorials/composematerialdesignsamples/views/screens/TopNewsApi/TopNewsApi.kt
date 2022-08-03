@@ -23,7 +23,6 @@ import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.views.components.SearchBar
 import eu.tutorials.composematerialdesignsamples.Util.NewsData
 import eu.tutorials.composematerialdesignsamples.Util.NewsData.getTimeAgo
-import eu.tutorials.composematerialdesignsamples.domain.network.NewsManager
 import eu.tutorials.composematerialdesignsamples.network.model.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.views.components.ErrorUI
 import eu.tutorials.composematerialdesignsamples.views.components.LoadingUI
