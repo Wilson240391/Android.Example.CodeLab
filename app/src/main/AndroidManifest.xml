@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ComposeMaterialDesignSamples">
         <activity
-            android:name=".views.activitys.CountryActivity"
+            android:name=".views.activitys.countries.CountryActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
