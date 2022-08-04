@@ -31,7 +31,7 @@ fun GmailDrawerMenu(dp: Dp = 8.dp, scrollState: ScrollState, navController: NavC
         DrawerMenuData.JetPack,
         DrawerMenuData.Mail,
         DrawerMenuData.TopNews,
-        DrawerMenuData.Promotions,
+        DrawerMenuData.Movies,
         //Xml
         DrawerMenuData.Divider,
         DrawerMenuData.Xml,

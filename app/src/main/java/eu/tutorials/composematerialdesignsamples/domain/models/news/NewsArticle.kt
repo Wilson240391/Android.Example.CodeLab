@@ -1,6 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.network.model
-
-import eu.tutorials.composematerialdesignsamples.domain.models.Source
+package eu.tutorials.composematerialdesignsamples.domain.models.news
 
 data class TopNewsArticle(
     val source : Source? = null,

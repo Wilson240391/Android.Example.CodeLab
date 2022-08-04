@@ -26,10 +26,10 @@ import com.skydoves.landscapist.coil.CoilImage
 import eu.tutorials.composematerialdesignsamples.Util.NewsData
 import eu.tutorials.composematerialdesignsamples.Util.NewsData.getTimeAgo
 import eu.tutorials.composematerialdesignsamples.R
-import eu.tutorials.composematerialdesignsamples.network.model.TopNewsArticle
+import eu.tutorials.composematerialdesignsamples.domain.models.news.TopNewsArticle
 
 @Composable
-fun DetailScreenApi(article: TopNewsArticle, scrollState: ScrollState,navController: NavController) {
+fun DetailScreenApi(article: TopNewsArticle, scrollState: ScrollState, navController: NavController) {
     Scaffold(topBar = {
         DetailTopAppBarApi(onBackPressed = {navController.popBackStack()})
     }) {

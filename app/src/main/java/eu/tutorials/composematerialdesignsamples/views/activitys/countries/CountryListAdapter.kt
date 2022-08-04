@@ -5,11 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import eu.tutorials.composematerialdesignsamples.Util.getProgressDrawable
 import eu.tutorials.composematerialdesignsamples.Util.loadImage
 import eu.tutorials.composematerialdesignsamples.databinding.ItemCountryBinding
-import eu.tutorials.composematerialdesignsamples.domain.models.Country
+import eu.tutorials.composematerialdesignsamples.domain.models.counrties.Country
 
 class CountryListAdapter(): ListAdapter<Country, CountryListAdapter.ViewHolder>(DiffCallback) {
 

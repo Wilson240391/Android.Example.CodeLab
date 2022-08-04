@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.domain.models
+package eu.tutorials.composematerialdesignsamples.domain.models.news
 
 import eu.tutorials.composematerialdesignsamples.R
 

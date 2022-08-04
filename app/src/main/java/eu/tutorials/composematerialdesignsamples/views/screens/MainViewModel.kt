@@ -1,13 +1,12 @@
 package eu.tutorials.composematerialdesignsamples.views.screens
 
 import android.app.Application
-import androidx.compose.runtime.*
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import eu.tutorials.composematerialdesignsamples.MainApp
 import eu.tutorials.composematerialdesignsamples.Util.ArticleCategory
 import eu.tutorials.composematerialdesignsamples.Util.getArticleCategory
-import eu.tutorials.composematerialdesignsamples.domain.models.TopNewsResponse
+import eu.tutorials.composematerialdesignsamples.domain.models.news.NewsResponse
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,8 +27,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private val _newResponse = MutableStateFlow(TopNewsResponse())
-    val newsResponse: StateFlow<TopNewsResponse> get() = _newResponse
+    private val _newResponse = MutableStateFlow(NewsResponse())
+    val newsResponse: StateFlow<NewsResponse> get() = _newResponse
     fun getTopArticles() {
         _isLoading.value = true
         viewModelScope.launch(Dispatchers.IO + errorHandler){
@@ -38,8 +37,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private val _getArticleByCategory = MutableStateFlow(TopNewsResponse())
-    val getArticleByCategory: StateFlow<TopNewsResponse> get() = _getArticleByCategory
+    private val _getArticleByCategory = MutableStateFlow(NewsResponse())
+    val getArticleByCategory: StateFlow<NewsResponse> get() = _getArticleByCategory
     fun getArticlesByCategory(category: String) {
         _isLoading.value = true
         viewModelScope.launch(Dispatchers.IO + errorHandler) {
@@ -56,8 +55,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     val sourceName = MutableStateFlow("engadget")
-    private val _getArticleBySource = MutableStateFlow(TopNewsResponse())
-    val getArticleBySource: StateFlow<TopNewsResponse> get() = _getArticleBySource
+    private val _getArticleBySource = MutableStateFlow(NewsResponse())
+    val getArticleBySource: StateFlow<NewsResponse> get() = _getArticleBySource
     fun getArticleBySource() {
         _isLoading.value = true
         viewModelScope.launch(Dispatchers.IO + errorHandler){
@@ -67,8 +66,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     val query = MutableStateFlow("")
-    private val _searchedNewsResponse = MutableStateFlow(TopNewsResponse())
-    val searchedNewsResponse: StateFlow<TopNewsResponse> get() = _searchedNewsResponse
+    private val _searchedNewsResponse = MutableStateFlow(NewsResponse())
+    val searchedNewsResponse: StateFlow<NewsResponse> get() = _searchedNewsResponse
     fun getSearchedArticles(query: String) {
         viewModelScope.launch(Dispatchers.IO) {
             _searchedNewsResponse.value = repository.getSearchedArticles(query)

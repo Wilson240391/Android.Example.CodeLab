@@ -1,8 +1,8 @@
 package eu.tutorials.composematerialdesignsamples.domain.network
 
-import eu.tutorials.composematerialdesignsamples.data.repository.CountriesApi
-import eu.tutorials.composematerialdesignsamples.di.DaggerApiComponent
-import eu.tutorials.composematerialdesignsamples.domain.models.Country
+import eu.tutorials.composematerialdesignsamples.data.repository.countries.CountriesApi
+import eu.tutorials.composematerialdesignsamples.di.countries.DaggerApiComponent
+import eu.tutorials.composematerialdesignsamples.domain.models.counrties.Country
 import io.reactivex.Single
 import javax.inject.Inject
 

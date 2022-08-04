@@ -2,8 +2,8 @@ package eu.tutorials.composematerialdesignsamples.views.activitys.countries
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import eu.tutorials.composematerialdesignsamples.di.DaggerApiComponent
-import eu.tutorials.composematerialdesignsamples.domain.models.Country
+import eu.tutorials.composematerialdesignsamples.di.countries.DaggerApiComponent
+import eu.tutorials.composematerialdesignsamples.domain.models.counrties.Country
 import eu.tutorials.composematerialdesignsamples.domain.network.CountriesService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

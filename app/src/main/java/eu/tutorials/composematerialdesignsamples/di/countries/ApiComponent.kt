@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.di
+package eu.tutorials.composematerialdesignsamples.di.countries
 
 import dagger.Component
 import eu.tutorials.composematerialdesignsamples.domain.network.CountriesService

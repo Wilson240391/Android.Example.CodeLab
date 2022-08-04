@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import eu.tutorials.composematerialdesignsamples.Util.NewsData
 import eu.tutorials.composematerialdesignsamples.Util.NewsData.getTimeAgo
-import eu.tutorials.composematerialdesignsamples.domain.models.New
+import eu.tutorials.composematerialdesignsamples.domain.models.news.New
 
 @Composable
 fun TopNewsDummy(navController: NavController) {

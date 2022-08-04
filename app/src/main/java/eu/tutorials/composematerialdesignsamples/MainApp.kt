@@ -1,10 +1,12 @@
 package eu.tutorials.composematerialdesignsamples
 
 import android.app.Application
-import eu.tutorials.composematerialdesignsamples.data.repository.RepositoryApi
-import eu.tutorials.composematerialdesignsamples.di.ApiModuleNews
+import dagger.hilt.android.HiltAndroidApp
+import eu.tutorials.composematerialdesignsamples.data.repository.news.RepositoryApi
+import eu.tutorials.composematerialdesignsamples.di.countries.ApiModuleNews
 import eu.tutorials.composematerialdesignsamples.domain.network.NewsService
 
+@HiltAndroidApp
 class MainApp: Application() {
 
     private val manager by lazy {

@@ -1,6 +1,5 @@
 package eu.tutorials.composematerialdesignsamples.views.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -24,14 +23,14 @@ import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.views.components.SearchBar
 import eu.tutorials.composematerialdesignsamples.Util.NewsData
 import eu.tutorials.composematerialdesignsamples.Util.NewsData.getTimeAgo
-import eu.tutorials.composematerialdesignsamples.network.model.TopNewsArticle
+import eu.tutorials.composematerialdesignsamples.domain.models.news.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.views.components.ErrorUI
 import eu.tutorials.composematerialdesignsamples.views.components.LoadingUI
 
 
 @Composable
 fun TopNewsApi(navController: NavController, articles:List<TopNewsArticle>, query: MutableState<String>,
-            viewModel: MainViewModel, isLoading: MutableState<Boolean>, isError: MutableState<Boolean>
+               viewModel: MainViewModel, isLoading: MutableState<Boolean>, isError: MutableState<Boolean>
 ) {
     Column(modifier = Modifier.fillMaxSize(),horizontalAlignment = Alignment.CenterHorizontally) {
         SearchBar(query = query, viewModel)
@@ -63,7 +62,7 @@ fun TopNewsApi(navController: NavController, articles:List<TopNewsArticle>, quer
 }
 
 @Composable
-fun TopNewsItemApi(article: TopNewsArticle,onNewsClick: () -> Unit = {},) {
+fun TopNewsItemApi(article: TopNewsArticle, onNewsClick: () -> Unit = {},) {
     Box(modifier = Modifier
         .height(200.dp)
         .padding(8.dp)

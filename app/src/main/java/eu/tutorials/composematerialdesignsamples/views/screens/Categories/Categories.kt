@@ -25,7 +25,7 @@ import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.Util.NewsData
 import eu.tutorials.composematerialdesignsamples.Util.NewsData.getTimeAgo
 import eu.tutorials.composematerialdesignsamples.Util.getAllArticleCategory
-import eu.tutorials.composematerialdesignsamples.network.model.TopNewsArticle
+import eu.tutorials.composematerialdesignsamples.domain.models.news.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.views.components.ErrorUI
 import eu.tutorials.composematerialdesignsamples.views.components.LoadingUI
 

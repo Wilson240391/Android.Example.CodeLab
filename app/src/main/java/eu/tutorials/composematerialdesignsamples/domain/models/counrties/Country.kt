@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.domain.models
+package eu.tutorials.composematerialdesignsamples.domain.models.counrties
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,8 +1,8 @@
-package eu.tutorials.composematerialdesignsamples.di
+package eu.tutorials.composematerialdesignsamples.di.countries
 
 import dagger.Module
 import dagger.Provides
-import eu.tutorials.composematerialdesignsamples.data.repository.CountriesApi
+import eu.tutorials.composematerialdesignsamples.data.repository.countries.CountriesApi
 import eu.tutorials.composematerialdesignsamples.domain.network.CountriesService
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

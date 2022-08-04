@@ -4,7 +4,7 @@ import android.icu.text.SimpleDateFormat
 import android.os.Build
 import android.util.Log
 import eu.tutorials.composematerialdesignsamples.R
-import eu.tutorials.composematerialdesignsamples.domain.models.New
+import eu.tutorials.composematerialdesignsamples.domain.models.news.New
 import java.util.*
 
 object NewsData {

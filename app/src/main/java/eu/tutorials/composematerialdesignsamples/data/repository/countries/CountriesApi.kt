@@ -1,6 +1,6 @@
-package eu.tutorials.composematerialdesignsamples.data.repository
+package eu.tutorials.composematerialdesignsamples.data.repository.countries
 
-import eu.tutorials.composematerialdesignsamples.domain.models.Country
+import eu.tutorials.composematerialdesignsamples.domain.models.counrties.Country
 import io.reactivex.Single
 import retrofit2.http.GET
 

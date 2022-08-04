@@ -23,7 +23,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import eu.tutorials.composematerialdesignsamples.Util.NewsData
 import eu.tutorials.composematerialdesignsamples.Util.NewsData.getTimeAgo
-import eu.tutorials.composematerialdesignsamples.domain.models.New
+import eu.tutorials.composematerialdesignsamples.domain.models.news.New
 import eu.tutorials.composematerialdesignsamples.R
 
 @Composable

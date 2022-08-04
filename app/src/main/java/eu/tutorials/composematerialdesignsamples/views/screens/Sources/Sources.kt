@@ -23,7 +23,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import eu.tutorials.composematerialdesignsamples.network.model.TopNewsArticle
+import eu.tutorials.composematerialdesignsamples.domain.models.news.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.views.components.ErrorUI
 import eu.tutorials.composematerialdesignsamples.views.components.LoadingUI

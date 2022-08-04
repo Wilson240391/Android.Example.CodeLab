@@ -2,7 +2,6 @@
     <string name="app_name">Compose Material Design Samples</string>
     <dimen name="layout_height">100dp</dimen>
     <dimen name="standard_padding">8dp</dimen>
-    <string name="error_text">An error occurred while loading Data.</string>
     <style name="Title">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
@@ -11,4 +10,18 @@
     <style name="Text">
         <item name="android:textSize">14sp</item>
     </style>
+
+    <!--movies-->
+    <string name="screen_title_home">Home</string>
+    <string name="screen_title_action_movies">Action Movies</string>
+    <string name="screen_title_animation_movies">Animation Movies</string>
+    <string name="section_title_top_rated">Top Rated</string>
+    <string name="section_title_action">Action</string>
+    <string name="section_title_animation">Animation</string>
+    <string name="section_error_top_rated">Failed to load top rated movies</string>
+    <string name="section_error_action">Failed to load Action movies</string>
+    <string name="section_error_animation">Failed to load Animation movies</string>
+    <string name="section_filter_text_default">See All</string>
+    <string name="error_text">Check your connection or try again later.</string>
+    <string name="ok_button_text">OK</string>
 </resources>

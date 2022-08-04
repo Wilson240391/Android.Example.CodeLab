@@ -1,8 +1,8 @@
 package eu.tutorials.composematerialdesignsamples.Util
 
 import eu.tutorials.composematerialdesignsamples.R
-import eu.tutorials.composematerialdesignsamples.domain.models.Account
-import eu.tutorials.composematerialdesignsamples.domain.models.Mail
+import eu.tutorials.composematerialdesignsamples.domain.models.mail.Account
+import eu.tutorials.composematerialdesignsamples.domain.models.mail.Mail
 
 val mailList = listOf(
     Mail(

@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.data.repository
+package eu.tutorials.composematerialdesignsamples.data.repository.news
 
 import eu.tutorials.composematerialdesignsamples.domain.network.NewsService
 

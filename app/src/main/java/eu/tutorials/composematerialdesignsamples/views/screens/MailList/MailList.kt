@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import eu.tutorials.composematerialdesignsamples.Util.mailList
-import eu.tutorials.composematerialdesignsamples.domain.models.Mail
+import eu.tutorials.composematerialdesignsamples.domain.models.mail.Mail
 
 @Composable
 fun MailList(paddingValues: PaddingValues, scrollState: ScrollState, navController: NavController) {

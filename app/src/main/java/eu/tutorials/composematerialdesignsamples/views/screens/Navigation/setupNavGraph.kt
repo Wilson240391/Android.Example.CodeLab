@@ -1,5 +1,6 @@
 package eu.tutorials.composematerialdesignsamples.views.screens.Navigation
 
+import androidx.activity.viewModels
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -8,12 +9,15 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import eu.tutorials.composematerialdesignsamples.HomeScreen
 import eu.tutorials.composematerialdesignsamples.Util.NewsData
 import eu.tutorials.composematerialdesignsamples.views.components.*
-import eu.tutorials.composematerialdesignsamples.network.model.TopNewsArticle
+import eu.tutorials.composematerialdesignsamples.domain.models.news.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.views.screens.*
 import eu.tutorials.composematerialdesignsamples.views.screens.Countries.NavCountries
-import eu.tutorials.composematerialdesignsamples.views.screens.Movies.MoviesList
+import eu.tutorials.composematerialdesignsamples.views.screens.Movies.HomeViewModel
+
+//import eu.tutorials.composematerialdesignsamples.views.screens.Movies.HomeScreen
 
 @Composable
 fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
@@ -22,11 +26,12 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
     val topArticle = viewModel.newsResponse.collectAsState().value.articles
     val loading by viewModel.isLoading.collectAsState()
     val error by viewModel.isError.collectAsState()
+    val modifier = Modifier.padding(paddingValues)
     articles.addAll(topArticle ?: listOf(TopNewsArticle()))
     NavHost(
         navController = navController,
         startDestination = DrawerMenuData.Categories.route,
-        modifier = Modifier.padding(paddingValues = paddingValues)
+        modifier
     ) {
         val queryState = mutableStateOf(viewModel.query.value)
         val isLoading = mutableStateOf(loading)
@@ -83,7 +88,7 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
             MailList(paddingValues, scrollState, navController = navController)
         }
         composable(DrawerMenuData.Movies.route) {
-            MoviesList()
+            HomeScreen(navController, modifier)
         }
     }
 }

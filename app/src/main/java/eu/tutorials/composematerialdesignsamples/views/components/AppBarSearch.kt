@@ -32,7 +32,9 @@ Box(modifier = Modifier.padding(10.dp)) {
         shape = RoundedCornerShape(10.dp),elevation = 6.dp) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxSize().padding(8.dp)
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp)
         ) {
             IconButton(onClick = { scope.launch { scaffoldState.drawerState.open() }
             }) { Icon(Icons.Default.Menu, "Menu") }

@@ -1,8 +1,8 @@
-package eu.tutorials.composematerialdesignsamples.di
+package eu.tutorials.composematerialdesignsamples.di.countries
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import eu.tutorials.composematerialdesignsamples.data.repository.NewsApi
+import eu.tutorials.composematerialdesignsamples.data.repository.news.NewsApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
