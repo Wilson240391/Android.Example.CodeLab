@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.composematerialdesignsamples.R
-import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.domain.room.DevByteVideo
+import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.network.DevByteVideo
 import eu.tutorials.composematerialdesignsamples.databinding.DevbyteItemBinding
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentDevByteBinding
 

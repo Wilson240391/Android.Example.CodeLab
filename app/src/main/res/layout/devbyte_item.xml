@@ -7,7 +7,7 @@
 
         <variable
             name="video"
-            type="eu.tutorials.composematerialdesignsamples.apprepositoryvideos.domain.room.DevByteVideo" />
+            type="eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.network.DevByteVideo" />
 
         <variable
             name="videoCallback"

@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.apprepositoryvideos.domain.room
+package eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.network
 
 import eu.tutorials.composematerialdesignsamples.util.smartTruncate
 

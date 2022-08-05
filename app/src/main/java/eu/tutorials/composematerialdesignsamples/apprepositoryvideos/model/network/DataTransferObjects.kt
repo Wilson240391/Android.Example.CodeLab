@@ -1,8 +1,7 @@
-package com.example.android.devbyteviewer.network
+package eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.network
 
 import com.example.android.devbyteviewer.database.DatabaseVideo
 import com.squareup.moshi.JsonClass
-import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.domain.room.DevByteVideo
 
 //This is to parse first level of our network result which looks like
 @JsonClass(generateAdapter = true)
