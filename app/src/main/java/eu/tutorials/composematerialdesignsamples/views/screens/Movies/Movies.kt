@@ -3,7 +3,6 @@ package eu.tutorials.composematerialdesignsamples.views.screens.Movies
 import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.*
@@ -36,6 +35,7 @@ import eu.tutorials.composematerialdesignsamples.appmovies.domain.Movie
 import eu.tutorials.composematerialdesignsamples.appmovies.domain.MovieGenre
 import eu.tutorials.composematerialdesignsamples.views.screens.Navigation.DrawerMenuData
 import java.util.*
+import eu.tutorials.composematerialdesignsamples.R
 
 @Composable
 fun HomeScreen(
@@ -45,7 +45,7 @@ fun HomeScreen(
     scaffoldState: ScaffoldState = rememberScaffoldState()
 ) {
     val uiState: HomeUiState by homeViewModel.uiState.collectAsState()
-    val errorMessage = stringResource(id = R.string.error_text)
+    val errorMessage = stringResource(id = eu.tutorials.composematerialdesignsamples.R.string.error_text)
     val okText = stringResource(id = R.string.ok_button_text)
 
     if (uiState.isError) {

@@ -13,6 +13,7 @@ import eu.tutorials.composematerialdesignsamples.views.components.*
 import eu.tutorials.composematerialdesignsamples.appnews.domain.models.news.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.views.screens.*
 import eu.tutorials.composematerialdesignsamples.views.screens.Movies.HomeScreen
+import eu.tutorials.composematerialdesignsamples.views.screens.splash.SplashScreen
 import eu.tutorials.composematerialdesignsamples.views.screens.xml.Countries.NavCountries
 import eu.tutorials.composematerialdesignsamples.views.screens.xml.TorrentMovies.NavTorrentMovies
 import eu.tutorials.composematerialdesignsamples.views.screens.xml.videos.NavVideos
@@ -30,12 +31,15 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
     articles.addAll(topArticle ?: listOf(TopNewsArticle()))
     NavHost(
         navController = navController,
-        startDestination = DrawerMenuData.Categories.route,
+        startDestination = DrawerMenuData.Splash.route,
         modifier
     ) {
         val queryState = mutableStateOf(viewModel.query.value)
         val isLoading = mutableStateOf(loading)
         val isError = mutableStateOf(error)
+        composable(DrawerMenuData.Splash.route) {
+            SplashScreen(navController = navController)
+        }
         composable(DrawerMenuData.TopNewsDummy.route) {
             TopNewsDummy(navController = navController)
         }

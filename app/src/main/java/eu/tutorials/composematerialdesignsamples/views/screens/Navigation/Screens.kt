@@ -7,8 +7,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 sealed class DrawerMenuData(val route: String, val icon: ImageVector, val title: String, val isDivider:Boolean=false, val isHeader:Boolean = false) {
 
     //BottomBar
-    object Categories : DrawerMenuData("categories", icon = Icons.Outlined.Category, "Categories")
     object Sources : DrawerMenuData("sources", icon = Icons.Outlined.Source, "CodeLabs")
+    object Categories : DrawerMenuData("categories", icon = Icons.Outlined.Category, "Categories")
+    object Splash : DrawerMenuData("splash_scree", icon = Icons.Outlined.Source, "Splash")
 
     //DrawerMenu
     object Countries : DrawerMenuData("countries", icon = Icons.Outlined.AllInbox, "Countries")
