@@ -31,12 +31,12 @@ fun GmailDrawerMenu(dp: Dp = 8.dp, scrollState: ScrollState, navController: NavC
         DrawerMenuData.JetPack,
         DrawerMenuData.Mail,
         DrawerMenuData.TopNews,
-        DrawerMenuData.Movies,
         //Xml
         DrawerMenuData.Divider,
         DrawerMenuData.Xml,
         DrawerMenuData.Countries,
         DrawerMenuData.PatternsVideo,
+        DrawerMenuData.Movies,
         //others
         DrawerMenuData.Divider,
         DrawerMenuData.Snoozed,

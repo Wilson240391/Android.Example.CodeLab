@@ -17,6 +17,7 @@ sealed class DrawerMenuData(val route: String, val icon: ImageVector, val title:
     object TopNews : DrawerMenuData("top news api", icon = Icons.Outlined.Home, "Top News")
     object Movies : DrawerMenuData("home", icon = Icons.Outlined.Outbox, "Movies")
     object PatternsVideo: DrawerMenuData("Videos", icon = Icons.Outlined.StarOutline, title = "PatternsVideo")
+    object TorrentMovies: DrawerMenuData("Torrent Movies", icon = Icons.Outlined.Snooze, title = "Torrent Movies")
 
     //others
     object ActionMovies: DrawerMenuData("action_movies_screen", icon = Icons.Outlined.Outbox, title = "ActionMovies",)
