@@ -20,9 +20,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.example.android.devbyteviewer.database.asDomainModel
 import com.example.android.devbyteviewer.network.DevByteNetwork
-import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.network.asDatabaseModel
-import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.repository.VideosDatabase
-import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.network.DevByteVideo
+import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.network.asDatabaseModel
+import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.repository.VideosDatabase
+import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.network.DevByteVideo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

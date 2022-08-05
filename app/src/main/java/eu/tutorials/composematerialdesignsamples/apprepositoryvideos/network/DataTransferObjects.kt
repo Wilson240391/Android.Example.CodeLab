@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.network
+package eu.tutorials.composematerialdesignsamples.apprepositoryvideos.network
 
 import com.example.android.devbyteviewer.database.DatabaseVideo
 import com.squareup.moshi.JsonClass

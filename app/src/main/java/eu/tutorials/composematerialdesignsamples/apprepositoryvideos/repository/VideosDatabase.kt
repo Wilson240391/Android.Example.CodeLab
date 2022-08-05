@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.repository
+package eu.tutorials.composematerialdesignsamples.apprepositoryvideos.repository
 
 import android.content.Context
 import androidx.room.Database

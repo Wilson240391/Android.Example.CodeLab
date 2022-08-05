@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.android.devbyteviewer.repository.VideosRepository
-import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.repository.getDatabase
+import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.repository.getDatabase
 import kotlinx.coroutines.launch
 import java.io.IOException
 

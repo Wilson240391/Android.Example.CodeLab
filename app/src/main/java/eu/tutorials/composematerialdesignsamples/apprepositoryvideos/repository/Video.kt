@@ -18,7 +18,7 @@ package com.example.android.devbyteviewer.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.model.network.DevByteVideo
+import eu.tutorials.composematerialdesignsamples.apprepositoryvideos.network.DevByteVideo
 
 @Entity
 data class DatabaseVideo constructor(
