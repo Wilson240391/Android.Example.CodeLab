@@ -16,9 +16,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import eu.tutorials.composematerialdesignsamples._News.data.NewsData
-import eu.tutorials.composematerialdesignsamples._News.data.NewsData.getTimeAgo
-import eu.tutorials.composematerialdesignsamples._News.domain.models.news.New
+import eu.tutorials.composematerialdesignsamples.appnews.data.NewsData
+import eu.tutorials.composematerialdesignsamples.appnews.data.NewsData.getTimeAgo
+import eu.tutorials.composematerialdesignsamples.appnews.domain.models.news.New
 
 @Composable
 fun TopNewsDummy(navController: NavController) {

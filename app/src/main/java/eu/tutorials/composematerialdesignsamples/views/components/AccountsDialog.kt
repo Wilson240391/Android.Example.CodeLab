@@ -28,8 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import eu.tutorials.composematerialdesignsamples.R
-import eu.tutorials.composematerialdesignsamples.Util.accountList
-import eu.tutorials.composematerialdesignsamples._News.domain.models.mail.Account
+import eu.tutorials.composematerialdesignsamples.util.accountList
+import eu.tutorials.composematerialdesignsamples.appnews.domain.models.mail.Account
 
 @Composable
 fun AccountsDialog(openDialog: MutableState<Boolean>) {

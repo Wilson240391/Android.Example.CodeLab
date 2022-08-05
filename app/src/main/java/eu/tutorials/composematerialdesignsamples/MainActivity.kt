@@ -35,8 +35,8 @@ import coil.request.ImageRequest
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import dagger.hilt.android.AndroidEntryPoint
-import eu.tutorials.composematerialdesignsamples._Movies.domain.Movie
-import eu.tutorials.composematerialdesignsamples._Movies.domain.MovieGenre
+import eu.tutorials.composematerialdesignsamples.appmovies.domain.Movie
+import eu.tutorials.composematerialdesignsamples.appmovies.domain.MovieGenre
 import eu.tutorials.composematerialdesignsamples.views.components.*
 import eu.tutorials.composematerialdesignsamples.views.screens.*
 import eu.tutorials.composematerialdesignsamples.ui.theme.ComposeMaterialDesignSamplesTheme

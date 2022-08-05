@@ -2,9 +2,9 @@ package eu.tutorials.composematerialdesignsamples
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
-import eu.tutorials.composematerialdesignsamples._News.data.RepositoryApi
-import eu.tutorials.composematerialdesignsamples._Countries.di.ApiModuleNews
-import eu.tutorials.composematerialdesignsamples._News.domain.network.NewsService
+import eu.tutorials.composematerialdesignsamples.appnews.data.RepositoryApi
+import eu.tutorials.composematerialdesignsamples.appcountries.di.ApiModuleNews
+import eu.tutorials.composematerialdesignsamples.appnews.domain.network.NewsService
 
 @HiltAndroidApp
 class MainApp: Application() {

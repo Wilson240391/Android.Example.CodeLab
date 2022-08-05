@@ -9,9 +9,9 @@ import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import eu.tutorials.composematerialdesignsamples.HomeScreen
-import eu.tutorials.composematerialdesignsamples._News.data.NewsData
+import eu.tutorials.composematerialdesignsamples.appnews.data.NewsData
 import eu.tutorials.composematerialdesignsamples.views.components.*
-import eu.tutorials.composematerialdesignsamples._News.domain.models.news.TopNewsArticle
+import eu.tutorials.composematerialdesignsamples.appnews.domain.models.news.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.views.screens.*
 import eu.tutorials.composematerialdesignsamples.views.screens.xml.Countries.NavCountries
 import eu.tutorials.composematerialdesignsamples.views.screens.xml.videos.NavVideos

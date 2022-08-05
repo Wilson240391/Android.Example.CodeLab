@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import eu.tutorials.composematerialdesignsamples.MainApp
-import eu.tutorials.composematerialdesignsamples.Util.ArticleCategory
-import eu.tutorials.composematerialdesignsamples.Util.getArticleCategory
-import eu.tutorials.composematerialdesignsamples._News.domain.models.news.NewsResponse
+import eu.tutorials.composematerialdesignsamples.util.ArticleCategory
+import eu.tutorials.composematerialdesignsamples.util.getArticleCategory
+import eu.tutorials.composematerialdesignsamples.appnews.domain.models.news.NewsResponse
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -3,15 +3,15 @@ package eu.tutorials.composematerialdesignsamples.views.screens.Movies
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.tutorials.composematerialdesignsamples._Movies.data.dao.MovieRepository
-import eu.tutorials.composematerialdesignsamples._Movies.domain.Movie
-import eu.tutorials.composematerialdesignsamples._Movies.domain.MovieGenre
-import eu.tutorials.composematerialdesignsamples.Util.asResult
+import eu.tutorials.composematerialdesignsamples.appmovies.data.dao.MovieRepository
+import eu.tutorials.composematerialdesignsamples.appmovies.domain.Movie
+import eu.tutorials.composematerialdesignsamples.appmovies.domain.MovieGenre
+import eu.tutorials.composematerialdesignsamples.util.asResult
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import eu.tutorials.composematerialdesignsamples.Util.Result
+import eu.tutorials.composematerialdesignsamples.util.Result
 
 sealed interface GenreUiState {
     data class Success(val movies: List<Movie>) : GenreUiState

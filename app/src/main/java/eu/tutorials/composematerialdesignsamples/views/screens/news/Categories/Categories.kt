@@ -22,10 +22,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.coil.CoilImage
 import eu.tutorials.composematerialdesignsamples.R
-import eu.tutorials.composematerialdesignsamples.Util.getAllArticleCategory
-import eu.tutorials.composematerialdesignsamples._News.data.NewsData
-import eu.tutorials.composematerialdesignsamples._News.data.NewsData.getTimeAgo
-import eu.tutorials.composematerialdesignsamples._News.domain.models.news.TopNewsArticle
+import eu.tutorials.composematerialdesignsamples.util.getAllArticleCategory
+import eu.tutorials.composematerialdesignsamples.appnews.data.NewsData
+import eu.tutorials.composematerialdesignsamples.appnews.data.NewsData.getTimeAgo
+import eu.tutorials.composematerialdesignsamples.appnews.domain.models.news.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.views.components.ErrorUI
 import eu.tutorials.composematerialdesignsamples.views.components.LoadingUI
 

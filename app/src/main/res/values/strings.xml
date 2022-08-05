@@ -2,6 +2,7 @@
     <string name="app_name">Compose Material Design Samples</string>
     <dimen name="layout_height">100dp</dimen>
     <dimen name="standard_padding">8dp</dimen>
+
     <style name="Title">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>

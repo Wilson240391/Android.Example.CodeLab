@@ -5,16 +5,16 @@ import androidx.compose.runtime.Immutable
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.tutorials.composematerialdesignsamples.Util.WhileUiSubscribed
-import eu.tutorials.composematerialdesignsamples._Movies.data.dao.MovieRepository
-import eu.tutorials.composematerialdesignsamples._Movies.domain.Movie
-import eu.tutorials.composematerialdesignsamples._Movies.domain.MovieGenre
+import eu.tutorials.composematerialdesignsamples.util.WhileUiSubscribed
+import eu.tutorials.composematerialdesignsamples.appmovies.data.dao.MovieRepository
+import eu.tutorials.composematerialdesignsamples.appmovies.domain.Movie
+import eu.tutorials.composematerialdesignsamples.appmovies.domain.MovieGenre
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import eu.tutorials.composematerialdesignsamples.Util.Result
-import eu.tutorials.composematerialdesignsamples.Util.asResult
+import eu.tutorials.composematerialdesignsamples.util.Result
+import eu.tutorials.composematerialdesignsamples.util.asResult
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 

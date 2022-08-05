@@ -23,10 +23,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.skydoves.landscapist.coil.CoilImage
-import eu.tutorials.composematerialdesignsamples._News.data.NewsData
-import eu.tutorials.composematerialdesignsamples._News.data.NewsData.getTimeAgo
+import eu.tutorials.composematerialdesignsamples.appnews.data.NewsData
+import eu.tutorials.composematerialdesignsamples.appnews.data.NewsData.getTimeAgo
 import eu.tutorials.composematerialdesignsamples.R
-import eu.tutorials.composematerialdesignsamples._News.domain.models.news.TopNewsArticle
+import eu.tutorials.composematerialdesignsamples.appnews.domain.models.news.TopNewsArticle
 
 @Composable
 fun DetailScreenApi(article: TopNewsArticle, scrollState: ScrollState, navController: NavController) {
