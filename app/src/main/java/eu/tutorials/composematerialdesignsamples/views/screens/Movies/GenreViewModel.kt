@@ -3,9 +3,9 @@ package eu.tutorials.composematerialdesignsamples.views.screens.Movies
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.tutorials.composematerialdesignsamples.data.repository.movies.MovieRepository
-import eu.tutorials.composematerialdesignsamples.domain.models.movies.Movie
-import eu.tutorials.composematerialdesignsamples.domain.models.movies.MovieGenre
+import eu.tutorials.composematerialdesignsamples._Movies.data.dao.MovieRepository
+import eu.tutorials.composematerialdesignsamples._Movies.domain.Movie
+import eu.tutorials.composematerialdesignsamples._Movies.domain.MovieGenre
 import eu.tutorials.composematerialdesignsamples.Util.asResult
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

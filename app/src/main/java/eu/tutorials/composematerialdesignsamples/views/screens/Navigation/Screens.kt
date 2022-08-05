@@ -16,12 +16,12 @@ sealed class DrawerMenuData(val route: String, val icon: ImageVector, val title:
     object TopNewsDummy : DrawerMenuData("top news dummy", icon = Icons.Outlined.Home, "Dummy")
     object TopNews : DrawerMenuData("top news api", icon = Icons.Outlined.Home, "Top News")
     object Movies : DrawerMenuData("home", icon = Icons.Outlined.Outbox, "Movies")
+    object PatternsVideo: DrawerMenuData("Videos", icon = Icons.Outlined.StarOutline, title = "PatternsVideo")
 
     //others
     object ActionMovies: DrawerMenuData("action_movies_screen", icon = Icons.Outlined.Outbox, title = "ActionMovies",)
     object AnimationMovies: DrawerMenuData("animation_movies_screen", icon = Icons.Outlined.Outbox, title = "AnimationMovies",)
 
-    object Starred: DrawerMenuData("Countries", icon = Icons.Outlined.StarOutline, title = "Starred")
     object Snoozed: DrawerMenuData("Countries", icon = Icons.Outlined.Snooze, title = "Snoozed")
     object Important: DrawerMenuData("Countries", icon = Icons.Outlined.Label, title = "Important")
     object Sent: DrawerMenuData("Countries", icon = Icons.Outlined.Send, title = "Sent")

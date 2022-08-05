@@ -15,7 +15,7 @@
         android:theme="@style/Theme.ComposeMaterialDesignSamples"
         tools:targetApi="31">
         <activity
-            android:name=".views.activitys.countries.CountryActivity"
+            android:name="eu.tutorials.composematerialdesignsamples._Countries.views.CountryActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

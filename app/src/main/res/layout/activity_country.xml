@@ -13,7 +13,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".views.activitys.countries.CountryActivity">
+        tools:context="._Countries.views.CountryActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/countriesList"

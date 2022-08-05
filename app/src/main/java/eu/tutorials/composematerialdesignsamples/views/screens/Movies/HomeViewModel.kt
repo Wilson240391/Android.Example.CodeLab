@@ -3,13 +3,12 @@ package eu.tutorials.composematerialdesignsamples.views.screens.Movies
 import android.app.Application
 import androidx.compose.runtime.Immutable
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.tutorials.composematerialdesignsamples.Util.WhileUiSubscribed
-import eu.tutorials.composematerialdesignsamples.data.repository.movies.MovieRepository
-import eu.tutorials.composematerialdesignsamples.domain.models.movies.Movie
-import eu.tutorials.composematerialdesignsamples.domain.models.movies.MovieGenre
+import eu.tutorials.composematerialdesignsamples._Movies.data.dao.MovieRepository
+import eu.tutorials.composematerialdesignsamples._Movies.domain.Movie
+import eu.tutorials.composematerialdesignsamples._Movies.domain.MovieGenre
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch

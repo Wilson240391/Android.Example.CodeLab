@@ -1,6 +1,5 @@
 package eu.tutorials.composematerialdesignsamples.views.screens.Navigation
 
-import androidx.activity.viewModels
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -10,12 +9,12 @@ import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import eu.tutorials.composematerialdesignsamples.HomeScreen
-import eu.tutorials.composematerialdesignsamples.Util.NewsData
+import eu.tutorials.composematerialdesignsamples._News.data.NewsData
 import eu.tutorials.composematerialdesignsamples.views.components.*
-import eu.tutorials.composematerialdesignsamples.domain.models.news.TopNewsArticle
+import eu.tutorials.composematerialdesignsamples._News.domain.models.news.TopNewsArticle
 import eu.tutorials.composematerialdesignsamples.views.screens.*
-import eu.tutorials.composematerialdesignsamples.views.screens.Countries.NavCountries
-import eu.tutorials.composematerialdesignsamples.views.screens.Movies.HomeViewModel
+import eu.tutorials.composematerialdesignsamples.views.screens.xml.Countries.NavCountries
+import eu.tutorials.composematerialdesignsamples.views.screens.xml.videos.NavVideos
 
 //import eu.tutorials.composematerialdesignsamples.views.screens.Movies.HomeScreen
 
@@ -81,14 +80,18 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
         }
 
         //menu options
-        composable(DrawerMenuData.Countries.route) {
-            NavCountries()
-        }
         composable(DrawerMenuData.Mail.route) {
             MailList(paddingValues, scrollState, navController = navController)
         }
         composable(DrawerMenuData.Movies.route) {
             HomeScreen(navController, modifier)
         }
+        composable(DrawerMenuData.Countries.route) {
+            NavCountries()
+        }
+        composable(DrawerMenuData.PatternsVideo.route) {
+            NavVideos()
+        }
+
     }
 }
