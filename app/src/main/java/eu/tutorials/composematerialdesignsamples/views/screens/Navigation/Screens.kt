@@ -22,7 +22,7 @@ sealed class DrawerMenuData(val route: String, val icon: ImageVector, val title:
     object ActionMovies: DrawerMenuData("action_movies_screen", icon = Icons.Outlined.Outbox, title = "ActionMovies",)
     object AnimationMovies: DrawerMenuData("animation_movies_screen", icon = Icons.Outlined.Outbox, title = "AnimationMovies",)
 
-    object appjet: DrawerMenuData("Countries", icon = Icons.Outlined.Snooze, title = "Snoozed")
+    object Snoozed: DrawerMenuData("Countries", icon = Icons.Outlined.Snooze, title = "Snoozed")
     object Important: DrawerMenuData("Countries", icon = Icons.Outlined.Label, title = "Important")
     object Sent: DrawerMenuData("Countries", icon = Icons.Outlined.Send, title = "Sent")
     object Schedule: DrawerMenuData("Countries", icon = Icons.Outlined.Schedule, title = "Scheduled")
