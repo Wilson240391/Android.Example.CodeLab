@@ -36,7 +36,7 @@ fun GmailDrawerMenu(dp: Dp = 8.dp, scrollState: ScrollState, navController: NavC
         DrawerMenuData.Xml,
         DrawerMenuData.Countries,
         DrawerMenuData.PatternsVideo,
-        DrawerMenuData.Movies,
+        DrawerMenuData.TorrentMovies,
         //others
         DrawerMenuData.Divider,
         DrawerMenuData.Snoozed,

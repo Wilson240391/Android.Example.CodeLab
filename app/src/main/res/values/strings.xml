@@ -1,17 +1,5 @@
 <resources>
-    <string name="app_name">Compose Material Design Samples</string>
-    <dimen name="layout_height">100dp</dimen>
-    <dimen name="standard_padding">8dp</dimen>
-
-    <style name="Title">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Text">
-        <item name="android:textSize">14sp</item>
-    </style>
-
+    <string name="app_name">Design Samples</string>
     <!--movies-->
     <string name="screen_title_home">Home</string>
     <string name="screen_title_action_movies">Action Movies</string>
@@ -25,4 +13,51 @@
     <string name="section_filter_text_default">See All</string>
     <string name="error_text">Check your connection or try again later.</string>
     <string name="ok_button_text">OK</string>
+
+    <!-- Torrent Movies -->
+    <string name="movies">Movies</string>
+    <string name="search">Search</string>
+    <string name="movieCover">Movie Cover</string>
+    <string name="transitionName">transition</string>
+    <string name="checkYoutube">Check if Youtube App is installed..</string>
+    <string name="movieQuality">Select Quality</string>
+    <string name="streamSeeds">Seeds: %d</string>
+    <string name="streamProgress">%1$.2f %2$s</string>
+    <string name="streamDownloadSpeed">Speed: %d KB</string>
+    <string name="movieQualityType">%1$s %2$s</string>
+    <string name="description">Description</string>
+    <string name="cast">Cast</string>
+    <string name="screenshots">ScreenShots</string>
+    <string name="trailer">Trailer</string>
+    <string name="explore">Explore</string>
+    <string name="rank">Rank</string>
+    <string name="favorite">Favorites</string>
+    <string name="ranking">Ranking</string>
+    <string name="category">Category:</string>
+    <string name="mpaRating">%s/10</string>
+    <string name="movieSubtitle">Select Subtitle</string>
+    <string name="no_movies_in_favorite">NO MOVIES IN FAVORITE</string>
+    <string name="year">Year:</string>
+    <string name="noSubtitle">No subtitles found to this movie..</string>
+    <string name="subtitleError">Error with adding subtitle, Please try again..</string>
+    <string name="stream_it">STREAM IT</string>
+    <string name="torrent_movies">TORRENT MOVIES</string>
+
+    <dimen name="layout_height">100dp</dimen>
+    <dimen name="standard_padding">8dp</dimen>
+
+    <style name="Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="android:background">@color/colorFillWhite</item>
+        <item name="android:textColorSecondary">@color/colorGray</item>
+    </style>
 </resources>

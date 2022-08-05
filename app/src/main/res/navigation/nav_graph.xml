@@ -9,4 +9,5 @@
         android:name="eu.tutorials.composematerialdesignsamples.apprepositoryvideos.views.VideosFragment"
         android:label="fragment_dev_byte"
         tools:layout="@layout/fragment_dev_byte" />
+
 </navigation>

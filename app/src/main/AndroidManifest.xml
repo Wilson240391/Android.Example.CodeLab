@@ -15,10 +15,13 @@
         android:theme="@style/Theme.ComposeMaterialDesignSamples"
         tools:targetApi="31">
         <activity
-            android:name="eu.tutorials.composematerialdesignsamples.apprepositoryvideos.views.VideosActivity"
+            android:name=".apptorrentmovies.views.TorrentActivity"
             android:exported="false" />
         <activity
-            android:name="eu.tutorials.composematerialdesignsamples.appcountries.views.CountryActivity"
+            android:name=".apprepositoryvideos.views.VideosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".appcountries.views.CountryActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

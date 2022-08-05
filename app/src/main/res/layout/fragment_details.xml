@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorDark">
+
+        <include
+            android:id="@+id/detailsNoInternet"
+            layout="@layout/no_internet_connection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+<!--            <com.like.LikeButton-->
+<!--                android:id="@+id/favMovie"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:animateLayoutChanges="true"-->
+<!--                android:elevation="10dp"-->
+<!--                app:anim_scale_factor="1.8"-->
+<!--                app:dots_primary_color="@color/colorAccent"-->
+<!--                app:dots_secondary_color="@color/colorRed"-->
+<!--                app:icon_size="30dp"-->
+<!--                app:icon_type="heart"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/detailsMovieCover"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/detailsMovieCover"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/detailsMovieCover"-->
+<!--                app:layout_goneMarginEnd="0dp"-->
+<!--                app:like_drawable="@drawable/heart_on"-->
+<!--                app:unlike_drawable="@drawable/heart_off" />-->
+
+            <ImageButton
+                android:id="@+id/detailsBackArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:elevation="8dp"
+                android:padding="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back" />
+
+            <ImageView
+                android:id="@+id/detailsMovieCover"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_130sdp"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorBlueGray"
+                android:elevation="8dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/detailsMovieBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorBlueGray"
+                    android:scaleType="fitXY"
+                    android:transitionName="imageView" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gradient_bg"/>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_bg_top"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/detailsMovieName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/playMovieFAB"
+                app:layout_constraintStart_toEndOf="@+id/detailsMovieCover"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/detailsMovieCover"
+                app:layout_constraintTop_toBottomOf="@+id/detailsMovieName">
+
+                <TextView
+                    android:id="@+id/movieCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@color/colorOffWhite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/detailsMovieCover"
+                    app:layout_constraintTop_toBottomOf="@+id/detailsMovieName" />
+
+                <TextView
+                    android:id="@+id/movieMpaRating"
+                    android:layout_width="48dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/mpa_shape"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/detailsMovieCover"
+                    app:layout_constraintStart_toEndOf="@+id/detailsMovieCover"
+                    app:layout_constraintTop_toBottomOf="@+id/movieCategory" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+                app:layout_constraintEnd_toStartOf="@+id/playMovieFAB"
+                app:layout_constraintStart_toEndOf="@+id/detailsMovieCover">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_star" />
+
+                <TextView
+                    android:id="@+id/movieRatingTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9.8"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/playMovieFAB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+                app:srcCompat="@drawable/exo_icon_play" />
+
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/description"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/youtubeLayout" />
+
+            <TextView
+                android:id="@+id/movieDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:text="TextView" />
+
+            <LinearLayout
+                android:id="@+id/castLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+<!--                app:layout_constraintTop_toBottomOf="@+id/screenShotsRV"-->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/cast"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorWhite" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/castRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="32dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/screenshots"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movieDescription" />
+
+<!--            <com.yarolegovich.discretescrollview.DiscreteScrollView-->
+<!--                android:id="@+id/screenShotsRV"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="@dimen/_160sdp"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                app:dsv_orientation="horizontal"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/youtubeLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <ImageButton
+                    android:id="@+id/initYoutube"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:elevation="8dp"
+                    android:padding="8dp"
+                    app:srcCompat="@android:drawable/ic_media_play" />
+<!--                app:layout_constraintTop_toTopOf="@+id/trailerView"
+                    app:layout_constraintStart_toStartOf="@+id/trailerView"
+                    app:layout_constraintEnd_toEndOf="@+id/trailerView"
+                    app:layout_constraintBottom_toBottomOf="@+id/trailerView"-->
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trailer"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+<!--                <androidx.fragment.app.FragmentContainerView-->
+<!--                    android:id="@+id/trailerView"-->
+<!--                    android:name="com.google.android.youtube.player.YouTubePlayerSupportFragmentX"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:layout_marginBottom="8dp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
+            </androidx.constraintlayout.widget.ConstraintLayout> <!-- youtube -->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</androidx.core.widget.NestedScrollView>

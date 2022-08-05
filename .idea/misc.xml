@@ -7,13 +7,24 @@
         <entry key="../../../../../layout/compose-model-1634730409353.xml" value="0.25" />
         <entry key="../../../../../layout/compose-model-1634740518591.xml" value="0.375" />
         <entry key="../../../../../layout/compose-model-1634745490343.xml" value="0.21675084175084175" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/gradient_bg.xml" value="0.114" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_crown.xml" value="0.114" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_logo.xml" value="0.114" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_play_circle_outline_black_48dp.xml" value="0.114" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/activity_country.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/activity_torrent.xml" value="0.10989583333333333" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/activity_videos.xml" value="0.10989583333333333" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/category_layout_rv.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/circle_shape.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/devbyte_item.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/explore_layout_rv.xml" value="0.10400000000000001" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/fragment_details.xml" value="0.10989583333333333" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/fragment_dev_byte.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/item_country.xml" value="0.12158054711246201" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/no_internet_connection.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/quality_card_view_shape.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/search_bar_shape.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/menu/bottom_nav_items.xml" value="0.10989583333333333" />
       </map>
     </option>
   </component>
