@@ -41,22 +41,22 @@
     <!--            android:name="movieName"-->
     <!--            app:argType="string" />-->
     <!--    </fragment>-->
+<!--        <fragment-->
+<!--            android:id="@+id/favoritesFragment"-->
+<!--            android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.favorites.FavoritesFragment"-->
+<!--            android:label="fragment_favorites"-->
+<!--            tools:layout="@layout/fragment_favorites" >-->
+<!--            <action-->
+<!--                android:id="@+id/action_favoritesFragment_to_detailsFragment"-->
+<!--                app:destination="@id/detailsFragments" />-->
+<!--        </fragment>-->
         <fragment
-            android:id="@+id/favoritesFragment"
-            android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.favorites.FavoritesFragment"
-            android:label="fragment_favorites"
-            tools:layout="@layout/fragment_favorites" >
+            android:id="@+id/rankFragment"
+            android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.rank.RankFragment"
+            android:label="fragment_rank"
+            tools:layout="@layout/fragment_rank" >
             <action
-                android:id="@+id/action_favoritesFragment_to_detailsFragment"
+                android:id="@+id/action_rankFragment_to_detailsFragment"
                 app:destination="@id/detailsFragments" />
         </fragment>
-    <!--    <fragment-->
-    <!--        android:id="@+id/rankFragment"-->
-    <!--        android:name="com.mhmdawad.torrentmovies.ui.fragments.rank.RankFragment"-->
-    <!--        android:label="fragment_rank"-->
-    <!--        tools:layout="@layout/fragment_rank" >-->
-    <!--        <action-->
-    <!--            android:id="@+id/action_rankFragment_to_detailsFragment"-->
-    <!--            app:destination="@id/detailsFragment" />-->
-    <!--    </fragment>-->
 </navigation>
