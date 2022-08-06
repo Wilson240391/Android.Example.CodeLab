@@ -147,14 +147,10 @@ class ExploreFragment : Fragment(), AdapterListener, IOnBackPressed, KoinCompone
     }
 
     override fun openMovie(movieID: Int, imageView: ImageView) {
-//        val extras =
-//            FragmentNavigatorExtras(imageView to resources.getString(R.string.transitionName))
-//        val action =
-//            ExploreFragmentDirections.actionExploreFragmentToDetailsFragment(
-//                movieID
-//            )
-//        findNavController().navigate(action, extras)
-//        activity?.hideBottomNav()
+        val extras = FragmentNavigatorExtras(imageView to resources.getString(R.string.transitionName))
+        val action = ExploreFragmentDirections.actionExploreFragmentToDetailsFragment(movieID)
+        findNavController().navigate(action, extras)
+        activity?.hideBottomNav()
     }
 
     override fun onResume() {

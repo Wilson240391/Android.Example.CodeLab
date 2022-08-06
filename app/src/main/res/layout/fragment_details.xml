@@ -291,7 +291,11 @@
                     android:background="@null"
                     android:elevation="8dp"
                     android:padding="8dp"
-                    app:srcCompat="@android:drawable/ic_media_play" />
+                    app:srcCompat="@android:drawable/ic_media_play"
+                    app:layout_constraintTop_toTopOf="@+id/textView3"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintEnd_toEndOf="@+id/textView3"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView3"/>
 <!--                app:layout_constraintTop_toTopOf="@+id/trailerView"
                     app:layout_constraintStart_toStartOf="@+id/trailerView"
                     app:layout_constraintEnd_toEndOf="@+id/trailerView"

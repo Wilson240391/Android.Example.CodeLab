@@ -10,24 +10,24 @@
         android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.explore.ExploreFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_explore" >
-        <!--        <action-->
-        <!--            android:id="@+id/action_exploreFragment_to_detailsFragment"-->
-        <!--            app:destination="@id/detailsFragment"-->
-        <!--            app:exitAnim="@anim/slide_out_left"-->
-        <!--            app:popExitAnim="@anim/slide_out_right" />-->
+            <action
+                android:id="@+id/action_exploreFragment_to_detailsFragment"
+                app:destination="@id/detailsFragments"
+                app:exitAnim="@anim/slide_out_left"
+                app:popExitAnim="@anim/slide_out_right" />
     </fragment>
-    <!--    <fragment-->
-    <!--        android:id="@+id/detailsFragment"-->
-    <!--        android:name="com.mhmdawad.torrentmovies.ui.fragments.details.DetailsFragment"-->
-    <!--        android:label="fragment_details"-->
-    <!--        tools:layout="@layout/fragment_details" >-->
-    <!--        <argument-->
-    <!--            android:name="movieId"-->
-    <!--            app:argType="integer"/>-->
-    <!--        <action-->
-    <!--            android:id="@+id/action_detailsFragment_to_streamFragment"-->
-    <!--            app:destination="@id/streamFragment" />-->
-    <!--    </fragment>-->
+        <fragment
+            android:id="@+id/detailsFragments"
+            android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.explore.ExploreFragment"
+            android:label="fragment_details"
+            tools:layout="@layout/fragment_details" >
+            <argument
+                android:name="movieId"
+                app:argType="integer"/>
+<!--            <action-->
+<!--                android:id="@+id/action_detailsFragment_to_streamFragment"-->
+<!--                app:destination="@id/streamFragment" />-->
+        </fragment>
     <!--    <fragment-->
     <!--        android:id="@+id/streamFragment"-->
     <!--        android:name="com.mhmdawad.torrentmovies.ui.fragments.stream.StreamFragment"-->
@@ -41,15 +41,15 @@
     <!--            android:name="movieName"-->
     <!--            app:argType="string" />-->
     <!--    </fragment>-->
-    <!--    <fragment-->
-    <!--        android:id="@+id/favoritesFragment"-->
-    <!--        android:name="com.mhmdawad.torrentmovies.ui.fragments.favorites.FavoritesFragment"-->
-    <!--        android:label="fragment_favorites"-->
-    <!--        tools:layout="@layout/fragment_favorites" >-->
-    <!--        <action-->
-    <!--            android:id="@+id/action_favoritesFragment_to_detailsFragment"-->
-    <!--            app:destination="@id/detailsFragment" />-->
-    <!--    </fragment>-->
+        <fragment
+            android:id="@+id/favoritesFragment"
+            android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.favorites.FavoritesFragment"
+            android:label="fragment_favorites"
+            tools:layout="@layout/fragment_favorites" >
+            <action
+                android:id="@+id/action_favoritesFragment_to_detailsFragment"
+                app:destination="@id/detailsFragments" />
+        </fragment>
     <!--    <fragment-->
     <!--        android:id="@+id/rankFragment"-->
     <!--        android:name="com.mhmdawad.torrentmovies.ui.fragments.rank.RankFragment"-->
