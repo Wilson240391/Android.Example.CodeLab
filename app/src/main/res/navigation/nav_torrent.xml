@@ -41,15 +41,15 @@
     <!--            android:name="movieName"-->
     <!--            app:argType="string" />-->
     <!--    </fragment>-->
-<!--        <fragment-->
-<!--            android:id="@+id/favoritesFragment"-->
-<!--            android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.favorites.FavoritesFragment"-->
-<!--            android:label="fragment_favorites"-->
-<!--            tools:layout="@layout/fragment_favorites" >-->
-<!--            <action-->
-<!--                android:id="@+id/action_favoritesFragment_to_detailsFragment"-->
-<!--                app:destination="@id/detailsFragments" />-->
-<!--        </fragment>-->
+        <fragment
+            android:id="@+id/favoritesFragment"
+            android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.favorites.FavoritesFragment"
+            android:label="fragment_favorites"
+            tools:layout="@layout/fragment_favorites" >
+            <action
+                android:id="@+id/action_favoritesFragment_to_detailsFragment"
+                app:destination="@id/detailsFragments" />
+        </fragment>
         <fragment
             android:id="@+id/rankFragment"
             android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.rank.RankFragment"
