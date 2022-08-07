@@ -1,0 +1,215 @@
+package eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.stream
+
+import android.app.AlertDialog
+import android.content.pm.ActivityInfo
+import android.net.Uri
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
+import com.google.android.exoplayer2.*
+import com.google.android.exoplayer2.source.*
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.SubtitleListener
+import org.koin.android.viewmodel.ext.android.getViewModel
+import org.koin.core.KoinComponent
+import org.koin.core.get
+import java.io.File
+
+
+//class StreamFragment : Fragment(), KoinComponent, TorrentListener,
+//    SubtitleListener, Player.EventListener {
+//
+//    private val args: StreamFragmentArgs by navArgs()
+//    private lateinit var simplePlayer: SimpleExoPlayer
+//    private lateinit var torrentStream: TorrentStream
+//    private lateinit var mergeMediaSource: MergingMediaSource
+//    private lateinit var mediaSource: ExtractorMediaSource
+//    private lateinit var alertDialog: AlertDialog
+//    private lateinit var viewModel: StreamViewModel
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+//        viewModel = getViewModel()
+//    }
+//
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//
+//        initTorrentStream()
+//        observeObservers()
+//        viewsListener()
+//    }
+//
+//    private fun viewsListener() {
+//
+//        moviePlayer.setControllerVisibilityListener {
+//            with(activity?.window?.decorView) {
+//                if (it == 0)
+//                    this?.systemUiVisibility = showSystemUI()
+//                else
+//                    this?.systemUiVisibility = hideSystemUI()
+//            }
+//        }
+//
+//        movieSubtitle.setOnClickListener {
+//            viewModel.searchMovieSubtitle(args.movieName)
+//        }
+//    }
+//
+//    private fun observeObservers() {
+//        viewModel.getSubtitlesData().observe(viewLifecycleOwner, Observer {
+//            when (it) {
+//                is Resource.Loading -> {
+//                    progressContainer.show()
+//                }
+//                is Resource.Loaded -> {
+//                    if (it.data!!.isNotEmpty())
+//                        showMovieSubtitlesDialog(it.data, requireView())
+//                    else
+//                        showToast(resources.getString(R.string.noSubtitle))
+//                    progressContainer.gone()
+//                }
+//                is Resource.Error -> {
+//                    progressContainer.gone()
+//                    showToast(it.msg!!)
+//                }
+//            }
+//            simplePlayer.stopPlayer()
+//        })
+//
+//        viewModel.getSubtitleStatus().observe(viewLifecycleOwner, Observer {
+//            when (it) {
+//                is Resource.Loaded -> {
+//                    alertDialog.dismiss()
+//                    addSubtitleToPlayer(it.data)
+//                }
+//                is Resource.Error -> showToast(resources.getString(R.string.subtitleError))
+//            }
+//        })
+//    }
+//
+//
+//    private fun showMovieSubtitlesDialog(listOfSubtitles: Array<OpenSubtitleItem>, view: View) {
+//        val viewGroup: ViewGroup? = view.findViewById(android.R.id.content)
+//        val dialogView =
+//            LayoutInflater.from(view.context).inflate(
+//                R.layout.movie_dialog
+//                , viewGroup, false
+//            )
+//        AlertDialog.Builder(view.context).apply {
+//            setTitle(resources.getString(R.string.movieSubtitle))
+//            setView(dialogView)
+//            alertDialog = create()
+//        }
+//        dialogView.movieDialogRV.apply {
+//            addDividers()
+//            adapter = MovieSubtitlesAdapter(listOfSubtitles, this@StreamFragment)
+//        }
+//        alertDialog.show()
+//    }
+//
+//
+//    private fun initTorrentStream() {
+//        torrentStream = get()
+//        torrentStream.startStream(args.movieUrl)
+//        torrentStream.addListener(this)
+//
+//    }
+//
+//    private fun initPlayer(path: String) {
+//        simplePlayer = get()
+//        moviePlayer.player = simplePlayer
+//        val factory: DefaultDataSourceFactory = get()
+//        mediaSource = ExtractorMediaSource.Factory(factory).createMediaSource(Uri.parse(path))
+//        mergeMediaSource = MergingMediaSource(mediaSource)
+//        simplePlayer.apply {
+//            startPlayer(mergeMediaSource)
+//            addListener(this@StreamFragment)
+//        }
+//    }
+//
+//    private fun addSubtitleToPlayer(data: Uri?) {
+//        val factory: DefaultDataSourceFactory = get()
+//        val textFormat: Format = get()
+//        val textMediaSource = SingleSampleMediaSource.Factory(factory)
+//            .createMediaSource(data, textFormat, C.TIME_UNSET)
+//        mergeMediaSource = MergingMediaSource(mediaSource, textMediaSource)
+//        simplePlayer.addingSubtitle(mergeMediaSource, simplePlayer.currentPosition)
+//    }
+//
+//    override fun onPlayerError(error: ExoPlaybackException?) {
+//        simplePlayer.seekPlayer(simplePlayer.contentPosition, mergeMediaSource)
+//    }
+//
+//    override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+//        if (playWhenReady && playbackState == Player.STATE_READY)
+//            progressContainer.gone()
+//        else if (playWhenReady && playbackState == Player.STATE_BUFFERING)
+//            progressContainer.show()
+//    }
+//
+//    override fun onStreamReady(torrent: Torrent?) {
+//        initPlayer(torrent?.videoFile?.absolutePath!!)
+//    }
+//
+//    override fun onStreamProgress(torrent: Torrent?, status: StreamStatus?) {
+//        try {
+//            streamSeeds.formatText(R.string.streamSeeds, status?.seeds)
+//            streamSpeed.formatText(R.string.streamDownloadSpeed, status?.downloadSpeed?.div(1024))
+//            streamProgressTxt.formatText(R.string.streamProgress, status?.progress, "%")
+//        } catch (e: IllegalStateException) {
+//            println("ERROR: $e")
+//        }
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        torrentStream.currentTorrent.pause()
+//        if (this::simplePlayer.isInitialized) simplePlayer.stopPlayer()
+//
+//    }
+//
+//    override fun onResume() {
+//        super.onResume()
+//        if (torrentStream.currentTorrent != null)
+//            torrentStream.currentTorrent.resume()
+//        if (this::simplePlayer.isInitialized) simplePlayer.resumePlayer()
+//    }
+//
+//
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
+//        torrentStream.removeListener(this)
+//        torrentStream.stopStream()
+//        if (this::simplePlayer.isInitialized)
+//            simplePlayer.release()
+//    }
+//
+//    override fun onSubtitleClicked(subtitle: OpenSubtitleItem) {
+//        viewModel.downloadSubtitle(
+//            subtitle,
+//            Uri.fromFile(File("${activity?.getExternalFilesDir(null)?.absolutePath}/${subtitle.SubFileName}"))
+//        )
+//
+//    }
+//
+//    override fun onStreamPrepared(torrent: Torrent?) {
+//    }
+//
+//    override fun onStreamStopped() {
+//    }
+//
+//    override fun onStreamStarted(torrent: Torrent?) {
+//    }
+//
+//    override fun onStreamError(torrent: Torrent?, e: Exception?) {
+//        println("Error: $e")
+//    }
+//}

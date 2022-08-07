@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.util.listeners
+package eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners
 
 
 interface QualityListener {

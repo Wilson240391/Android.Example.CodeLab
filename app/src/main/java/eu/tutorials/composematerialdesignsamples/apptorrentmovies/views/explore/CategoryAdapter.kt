@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.composematerialdesignsamples.databinding.CategoryLayoutRvBinding
-import eu.tutorials.composematerialdesignsamples.util.listeners.AdapterListener
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.AdapterListener
 
 class CategoryAdapter(private val categoryList: MutableList<Pair<String,String>>, private var adapterListener: AdapterListener) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {

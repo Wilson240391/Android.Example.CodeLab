@@ -2,17 +2,15 @@ package eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.rank
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesItem
-import eu.tutorials.composematerialdesignsamples.databinding.ExploreLayoutRvBinding
 import eu.tutorials.composematerialdesignsamples.databinding.MoviesRankRvBinding
 import eu.tutorials.composematerialdesignsamples.util.addList
 import eu.tutorials.composematerialdesignsamples.util.distinctList
 import eu.tutorials.composematerialdesignsamples.util.downloadImage
-import eu.tutorials.composematerialdesignsamples.util.listeners.AdapterListener
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.AdapterListener
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

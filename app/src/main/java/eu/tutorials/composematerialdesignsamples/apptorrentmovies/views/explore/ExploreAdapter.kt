@@ -1,17 +1,14 @@
 package eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.explore
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesItem
-import eu.tutorials.composematerialdesignsamples.databinding.CategoryLayoutRvBinding
 import eu.tutorials.composematerialdesignsamples.databinding.ExploreLayoutRvBinding
 import eu.tutorials.composematerialdesignsamples.util.addList
 import eu.tutorials.composematerialdesignsamples.util.distinctList
-import eu.tutorials.composematerialdesignsamples.util.listeners.AdapterListener
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.AdapterListener
 import kotlinx.coroutines.*
 
 class ExploreAdapter(private val adapterListener: AdapterListener) :

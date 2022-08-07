@@ -11,10 +11,9 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.composematerialdesignsamples.R
-import eu.tutorials.composematerialdesignsamples.databinding.FragmentExploreBinding
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentRankBinding
 import eu.tutorials.composematerialdesignsamples.util.*
-import eu.tutorials.composematerialdesignsamples.util.listeners.AdapterListener
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.AdapterListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 class RankFragment : Fragment(),

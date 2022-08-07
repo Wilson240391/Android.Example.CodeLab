@@ -10,14 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.yarolegovich.discretescrollview.DiscreteScrollView
-import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentFavoritesBinding
 import eu.tutorials.composematerialdesignsamples.util.*
-import eu.tutorials.composematerialdesignsamples.util.listeners.FavoriteListener
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.FavoriteListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
-import org.koin.core.get
 
 
 class FavoritesFragment : Fragment(), FavoriteListener, KoinComponent,

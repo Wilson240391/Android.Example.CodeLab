@@ -1,15 +1,12 @@
 package eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.favorites
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.FavoriteMovie
 import eu.tutorials.composematerialdesignsamples.databinding.FavoriteLayoutRvBinding
-import eu.tutorials.composematerialdesignsamples.databinding.MoviesRankRvBinding
 import eu.tutorials.composematerialdesignsamples.util.downloadImage
-import eu.tutorials.composematerialdesignsamples.util.listeners.FavoriteListener
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.FavoriteListener
 
 class FavoritesAdapter(private val favoriteListener: FavoriteListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

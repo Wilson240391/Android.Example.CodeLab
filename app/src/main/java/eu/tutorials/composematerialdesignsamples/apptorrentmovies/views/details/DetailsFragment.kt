@@ -11,17 +11,15 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.youtube.player.YouTubePlayer
-import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.CastItem
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentDetailsBinding
 import eu.tutorials.composematerialdesignsamples.databinding.MovieDialogBinding
 import eu.tutorials.composematerialdesignsamples.util.*
-import eu.tutorials.composematerialdesignsamples.util.listeners.QualityListener
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.QualityListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
-import org.koin.core.get
 
 
 class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComponent,

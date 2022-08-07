@@ -127,6 +127,11 @@ dependencies {
 
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
 
+//    // TorrentStream
+//    implementation 'com.github.TorrentStream:TorrentStream-Android:2.7.0'
+//    // Like Button
+//    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+
     // RecyclerView Discrete
     implementation 'com.yarolegovich:discrete-scrollview:1.5.1'
     //Picasso

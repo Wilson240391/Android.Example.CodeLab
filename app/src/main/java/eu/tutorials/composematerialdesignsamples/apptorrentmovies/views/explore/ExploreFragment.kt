@@ -3,7 +3,6 @@ package eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.explore
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.provider.SyncStateContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,8 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentExploreBinding
 import eu.tutorials.composematerialdesignsamples.util.*
-import eu.tutorials.composematerialdesignsamples.util.Constants.Companion.getMoviesGenre
-import eu.tutorials.composematerialdesignsamples.util.listeners.AdapterListener
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.AdapterListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
 import org.koin.core.get
