@@ -36,9 +36,9 @@ class RankFragment : Fragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = getViewModel()
-        observeObservers()
         initRecyclerView()
         viewsListener()
+        observeObservers()
     }
 
     private fun viewsListener() {
