@@ -12,22 +12,22 @@
         tools:layout="@layout/fragment_explore" >
             <action
                 android:id="@+id/action_exploreFragment_to_detailsFragment"
-                app:destination="@id/detailsFragments"
+                app:destination="@id/detailsFragment"
                 app:exitAnim="@anim/slide_out_left"
                 app:popExitAnim="@anim/slide_out_right" />
     </fragment>
-        <fragment
-            android:id="@+id/detailsFragments"
-            android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.explore.ExploreFragment"
-            android:label="fragment_details"
-            tools:layout="@layout/fragment_details" >
-            <argument
-                android:name="movieId"
-                app:argType="integer"/>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="movieId"
+            app:argType="integer"/>
 <!--            <action-->
 <!--                android:id="@+id/action_detailsFragment_to_streamFragment"-->
 <!--                app:destination="@id/streamFragment" />-->
-        </fragment>
+    </fragment>
     <!--    <fragment-->
     <!--        android:id="@+id/streamFragment"-->
     <!--        android:name="com.mhmdawad.torrentmovies.ui.fragments.stream.StreamFragment"-->
@@ -48,7 +48,7 @@
             tools:layout="@layout/fragment_favorites" >
             <action
                 android:id="@+id/action_favoritesFragment_to_detailsFragment"
-                app:destination="@id/detailsFragments" />
+                app:destination="@id/detailsFragment" />
         </fragment>
         <fragment
             android:id="@+id/rankFragment"
@@ -57,6 +57,6 @@
             tools:layout="@layout/fragment_rank" >
             <action
                 android:id="@+id/action_rankFragment_to_detailsFragment"
-                app:destination="@id/detailsFragments" />
+                app:destination="@id/detailsFragment" />
         </fragment>
 </navigation>

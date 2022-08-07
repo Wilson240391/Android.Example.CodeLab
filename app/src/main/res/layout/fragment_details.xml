@@ -261,15 +261,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/movieDescription" />
 
-<!--            <com.yarolegovich.discretescrollview.DiscreteScrollView-->
-<!--                android:id="@+id/screenShotsRV"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="@dimen/_160sdp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                app:dsv_orientation="horizontal"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
+            <com.yarolegovich.discretescrollview.DiscreteScrollView
+                android:id="@+id/screenShotsRV"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_160sdp"
+                android:layout_marginTop="8dp"
+                app:dsv_orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout

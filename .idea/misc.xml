@@ -23,10 +23,15 @@
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/fragment_dev_byte.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/fragment_favorites.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/fragment_rank.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/fragment_stream.xml" value="0.12158054711246201" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/item_country.xml" value="0.12158054711246201" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/movie_cast_rv.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/movie_dialog.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/movie_quality_dialog_rv.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/movies_rank_rv.xml" value="0.12158054711246201" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/no_internet_connection.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/quality_card_view_shape.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/screen_shot_movie_rv.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/search_bar_shape.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/menu/bottom_nav_items.xml" value="0.10989583333333333" />
       </map>
