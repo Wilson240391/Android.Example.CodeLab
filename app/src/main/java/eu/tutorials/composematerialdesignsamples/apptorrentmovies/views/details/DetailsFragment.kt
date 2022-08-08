@@ -56,7 +56,6 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
 
 
     private fun observeObservers() {
-
         viewModel.observeFavMovieExist().observe(viewLifecycleOwner, Observer {
             if(it) {
                 mbindig.favMovie.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_favorite_selected))
@@ -64,7 +63,6 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
                 mbindig.favMovie.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_favorite_unselected))
             }
         })
-
         viewModel.observeMovieDetails().observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Resource.Loading -> {

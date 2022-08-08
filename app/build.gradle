@@ -132,6 +132,7 @@ dependencies {
 //    // Like Button
 //    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.3'
     // RecyclerView Discrete
     implementation 'com.yarolegovich:discrete-scrollview:1.5.1'
     //Picasso

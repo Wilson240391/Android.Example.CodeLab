@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent">
 
@@ -26,22 +27,18 @@
                 android:src="@drawable/no_wifi" />
         </androidx.cardview.widget.CardView>
 
-<!--        <com.like.LikeButton-->
-<!--            android:id="@+id/favMovie"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:elevation="8dp"-->
-<!--            app:anim_scale_factor="1.5"-->
-<!--            app:dots_primary_color="@color/colorAccent"-->
-<!--            app:dots_secondary_color="@color/colorRed"-->
-<!--            app:icon_size="35dp"-->
-<!--            app:icon_type="heart"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/favMovieContainer"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/favMovieContainer"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/favMovieContainer"-->
-<!--            app:like_drawable="@drawable/heart_on"-->
-<!--            app:liked="true"-->
-<!--            app:unlike_drawable="@drawable/heart_off" />-->
+
+        <ImageView
+            android:id="@+id/favMovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/favMovieContainer"
+            app:layout_constraintEnd_toEndOf="@+id/favMovieContainer"
+            app:layout_constraintTop_toTopOf="@+id/favMovieContainer"
+            app:layout_goneMarginEnd="0dp"
+            android:src="@drawable/ic_favorite_selected" />
 
         <TextView
             android:id="@+id/favMovieName"

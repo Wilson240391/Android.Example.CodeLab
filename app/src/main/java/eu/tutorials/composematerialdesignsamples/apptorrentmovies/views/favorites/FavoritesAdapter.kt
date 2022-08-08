@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.FavoriteMovie
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.FavoriteListener
 import eu.tutorials.composematerialdesignsamples.databinding.FavoriteLayoutRvBinding
 import eu.tutorials.composematerialdesignsamples.util.downloadImage
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.FavoriteListener
+
 
 class FavoritesAdapter(private val favoriteListener: FavoriteListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -51,24 +52,17 @@ class FavoritesAdapter(private val favoriteListener: FavoriteListener) :
     inner class FavoriteViewHolder(itemView: FavoriteLayoutRvBinding) : RecyclerView.ViewHolder(itemView.root) {
         val favMovieCover = itemView.favMovieCover
         val favMovieName = itemView.favMovieName
+        val favMovie = itemView.favMovie
         fun bind(item: FavoriteMovie) = with(itemView) {
             favMovieCover.apply {
                 downloadImage(item.mediumCoverImage)
                 transitionName = item.backgroundImageOriginal
             }
             favMovieName.text = item.titleEnglish
-//            favMovie.apply {
-//                isLiked = true
-//                setOnLikeListener(object : OnLikeListener {
-//                    override fun liked(likeButton: LikeButton?) {
-//                    }
-//
-//                    override fun unLiked(likeButton: LikeButton?) {
-//                        lastPosition = adapterPosition
-//                        favoriteListener.onDeleteFavMovie(item.id!!)
-//                    }
-//                })
-//            }
+            favMovie.setOnClickListener {
+                lastPosition = adapterPosition
+                favoriteListener.onDeleteFavMovie(item.id!!)
+            }
             setOnClickListener { favoriteListener.onMovieClicked(item.id!!, favMovieCover) }
         }
     }
