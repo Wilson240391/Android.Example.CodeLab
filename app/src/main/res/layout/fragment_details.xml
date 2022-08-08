@@ -273,7 +273,6 @@
 
             </LinearLayout>
 
-
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="0dp"
@@ -298,6 +297,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/trailer"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toTopOf="@+id/youtubeLayout"
+                app:layout_constraintStart_toStartOf="parent"/>
+
             <LinearLayout
                 android:id="@+id/youtubeLayout"
                 android:animateLayoutChanges="false"
@@ -309,8 +321,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/af_yt_preview"
