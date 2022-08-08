@@ -41,7 +41,6 @@ class ExploreFragment : Fragment(), AdapterListener, IOnBackPressed, KoinCompone
         return mbindig.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = getViewModel()
@@ -56,14 +55,14 @@ class ExploreFragment : Fragment(), AdapterListener, IOnBackPressed, KoinCompone
                 is Resource.Error -> {
                     mbindig.refreshMoviesList.isRefreshing = false
                     if (exploreAdapter.itemCount < 10) {
-                        //mbindig.homeInternetConnection.show()
+                        mbindig.homeInternetConnection.root.show()
                         mbindig.exploreRV.gone()
                     }
                 }
                 is Resource.Loading -> mbindig.refreshMoviesList.isRefreshing = true
                 is Resource.Loaded -> {
                     mbindig.refreshMoviesList.isRefreshing = false
-                    //mbindig.homeInternetConnection.gone()
+                    mbindig.homeInternetConnection.root.gone()
                     mbindig.exploreRV.show()
                     with(dataObserve.data) {
                         exploreAdapter.addList(this!!)
@@ -85,7 +84,6 @@ class ExploreFragment : Fragment(), AdapterListener, IOnBackPressed, KoinCompone
     }
 
     private fun viewsListener(context: Context) {
-
         mbindig.searchMovie.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH && mbindig.searchMovie.text.isNotEmpty()) {
                 viewModel.searchMovie(mbindig.searchMovie.text.toString())

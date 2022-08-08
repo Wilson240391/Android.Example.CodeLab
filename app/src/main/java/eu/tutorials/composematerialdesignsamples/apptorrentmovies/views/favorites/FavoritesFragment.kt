@@ -105,8 +105,6 @@ class FavoritesFragment : Fragment(), FavoriteListener, KoinComponent,
         activity?.showBottomNav()
     }
 
-
-
     override fun onCurrentItemChanged(
         viewHolder: FavoritesAdapter.FavoriteViewHolder?,
         adapterPosition: Int

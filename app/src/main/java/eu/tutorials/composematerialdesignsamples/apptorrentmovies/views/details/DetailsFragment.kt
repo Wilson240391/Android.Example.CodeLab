@@ -58,7 +58,6 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /** Initializing YouTube player instance */
         mbindig = FragmentDetailsBinding.inflate(inflater, container, false)
         mbindigMovieovieDialog = MovieDialogBinding.inflate(inflater, container, false)
         initializeYoutubePlayer()
@@ -87,17 +86,17 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
         viewModel.observeMovieDetails().observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Resource.Loading -> {
-                    //mbindig.detailsNoInternet.gone()
+                    mbindig.detailsNoInternet.root.gone()
                     mbindig.detailsContainer.show()
                 }
                 is Resource.Loaded -> {
                     mbindig.detailsContainer.show()
-                    //mbindig.detailsNoInternet.gone()
+                    mbindig.detailsNoInternet.root.gone()
                     showMovieDetails(it.data!!)
                 }
                 is Resource.Error -> {
                     mbindig.detailsContainer.gone()
-                    //mbindig.detailsNoInternet.show()
+                    mbindig.detailsNoInternet.root.show()
                 }
             }
         })

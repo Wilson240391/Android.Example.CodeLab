@@ -1,6 +1,7 @@
 package eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.explore
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -41,6 +42,7 @@ class ExploreAdapter(private val adapterListener: AdapterListener) :
         val movieRating = itemView.movieRating
         val movieRatingNum = itemView.movieRatingNum
         val movieCover = itemView.movieCover
+        val shimmerFrame = itemView.shimmerFrame
         fun bind(moviesItem: MoviesItem) = with(itemView) {
             with(moviesItem) {
                 currentPosition = adapterPosition
@@ -57,6 +59,7 @@ class ExploreAdapter(private val adapterListener: AdapterListener) :
                         movieCover
                     )
                 }
+                shimmerFrame.visibility = View.GONE
             }
         }
     }

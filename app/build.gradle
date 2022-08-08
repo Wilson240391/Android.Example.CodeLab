@@ -127,10 +127,7 @@ dependencies {
     implementation 'androidx.leanback:leanback:1.0.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
-//    // TorrentStream
-//    implementation 'com.github.TorrentStream:TorrentStream-Android:2.7.0'
-//    // Like Button
-//    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+    //Facebook efect
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     //Youtube
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.3'

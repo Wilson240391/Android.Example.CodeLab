@@ -26,6 +26,20 @@
             android:contentDescription="@string/movieCover"
             android:scaleType="fitXY" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            app:shimmer_auto_start="true"
+            android:id="@+id/shimmerFrame"
+            android:background="?colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                app:tint="?attr/colorBackgroundFloating"
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_play_circle"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
     </androidx.cardview.widget.CardView>
 
     <TextView

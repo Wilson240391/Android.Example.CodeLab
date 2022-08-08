@@ -53,14 +53,14 @@ class RankFragment : Fragment(),
                 is Resource.Loaded -> {
                     rankAdapter.addList(it.data!!)
                     mbindig.rankSwipeRefresh.isRefreshing = false
-                    //mbindig.rankNoInternet.gone()
+                    mbindig.rankNoInternet.root.gone()
                     mbindig.rankRV.show()
                 }
                 is Resource.Error -> {
                     println("========== ${it.msg}")
                     mbindig.rankSwipeRefresh.isRefreshing = false
                     if(rankAdapter.itemCount < 10){
-                        //mbindig.rankNoInternet.show()
+                        mbindig.rankNoInternet.root.show()
                         mbindig.rankRV.gone()
                     }
                 }
