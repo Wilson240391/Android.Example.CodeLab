@@ -23,7 +23,7 @@ class ExploreAdapter(private val adapterListener: AdapterListener) :
         val binding: ExploreLayoutRvBinding = ExploreLayoutRvBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ExploreViewHolder(binding)
     }
-    
+
     override fun getItemCount(): Int = moviesList.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
