@@ -41,6 +41,4 @@ class MovieDialogAdapter(private val qualityList: List<TorrentsDetails>, private
         }
 
     }
-
-
 }

@@ -9,7 +9,6 @@ import eu.tutorials.composematerialdesignsamples.databinding.ScreenShotMovieRvBi
 class ScreenShotsAdapter(private val screenShotList: List<String>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScreenShotsViewHolder {
         val binding: ScreenShotMovieRvBinding =
             ScreenShotMovieRvBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -28,12 +27,10 @@ class ScreenShotsAdapter(private val screenShotList: List<String>) :
         return screenShotList.size
     }
 
-
     inner class ScreenShotsViewHolder(itemView: ScreenShotMovieRvBinding) : RecyclerView.ViewHolder(itemView.root) {
         val screenShotImage = itemView.screenShotImage
         fun bind(item: String) = with(itemView) {
             Picasso.get().load(item).into(screenShotImage)
         }
     }
-
 }

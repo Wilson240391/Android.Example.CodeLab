@@ -20,8 +20,10 @@ import org.koin.core.get
 import java.io.File
 
 
-//class StreamFragment : Fragment(), KoinComponent, TorrentListener,
-//    SubtitleListener, Player.EventListener {
+class StreamFragment : Fragment()
+// , KoinComponent, TorrentListener,
+//    SubtitleListener, Player.EventListener
+    {
 //
 //    private val args: StreamFragmentArgs by navArgs()
 //    private lateinit var simplePlayer: SimpleExoPlayer
@@ -212,4 +214,4 @@ import java.io.File
 //    override fun onStreamError(torrent: Torrent?, e: Exception?) {
 //        println("Error: $e")
 //    }
-//}
+}

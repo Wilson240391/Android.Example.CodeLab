@@ -36,12 +36,14 @@ class DetailsViewModel(private val repository: MainRepository): ViewModel() {
     fun addMovieToFavorite(movie: Movie){
         viewModelScope.launch {
             repository.saveMovieToFav(movie)
+            favMovieExist.postValue(true)
         }
     }
 
     fun deleteMovieFromFavorite(id: Int){
         viewModelScope.launch {
             repository.deleteSpecificFavMovie(id)
+            favMovieExist.postValue(false)
         }
     }
 }

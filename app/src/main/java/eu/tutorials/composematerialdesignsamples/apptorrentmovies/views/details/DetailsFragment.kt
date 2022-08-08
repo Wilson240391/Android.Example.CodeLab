@@ -6,6 +6,7 @@ import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -20,7 +21,6 @@ import eu.tutorials.composematerialdesignsamples.util.*
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.QualityListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
-
 
 class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComponent,
     IOnBackPressed, QualityListener {
@@ -46,8 +46,7 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sharedElementEnterTransition =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
         viewModel = getViewModel()
         viewModel.observeMovieDetails(args.movieId)
         viewModel.checkMovieFav(args.movieId)
@@ -59,7 +58,11 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
     private fun observeObservers() {
 
         viewModel.observeFavMovieExist().observe(viewLifecycleOwner, Observer {
-            //favMovie.isLiked = it
+            if(it) {
+                mbindig.favMovie.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_favorite_selected))
+            } else {
+                mbindig.favMovie.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_favorite_unselected))
+            }
         })
 
         viewModel.observeMovieDetails().observe(viewLifecycleOwner, Observer {
@@ -116,15 +119,14 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
         mbindig.detailsBackArrow.setOnClickListener {
             onBackPressed()
         }
-//        mbindig.favMovie.setOnLikeListener(object : OnLikeListener {
-//            override fun liked(likeButton: LikeButton?) {
-//                viewModel.addMovieToFavorite(this@with)
-//            }
-//
-//            override fun unLiked(likeButton: LikeButton?) {
-//                viewModel.deleteMovieFromFavorite(id!!)
-//            }
-//        })
+        mbindig.favMovie.setOnClickListener {
+            if (viewModel.observeFavMovieExist().value == true) {
+                viewModel.deleteMovieFromFavorite(id!!)
+            }
+            else {
+                viewModel.addMovieToFavorite(this@with)
+            }
+        }
     }
 
     private fun initRecyclerViews(castList: List<CastItem>, screenShotImages: List<String>) {
@@ -143,7 +145,6 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
 //        mbindig.ytFragment?.initialize(
 //            DeveloperKey.DEVELOPER_API,
 //            object : YouTubePlayer.OnInitializedListener {
-//
 //                override fun onInitializationSuccess(
 //                    provider: YouTubePlayer.Provider?,
 //                    player: YouTubePlayer?,
@@ -160,7 +161,6 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
 //                        youtubeLayout.gone()
 //                    }
 //                }
-//
 //                override fun onInitializationFailure(
 //                    p0: YouTubePlayer.Provider?,
 //                    p1: YouTubeInitializationResult?
@@ -168,15 +168,10 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
 //                    showToast(resources.getString(R.string.checkYoutube))
 //                }
 //            })
-
     }
 
     private fun showMovieQualityDialog(movieData: Movie?, view: View) {
-
-
-
         val viewGroup: ViewGroup? = view.findViewById(android.R.id.content)
-
         AlertDialog.Builder(view.context).apply {
             setTitle(resources.getString(R.string.movieQuality))
             setView(mbindigMovieovieDialog.root)
@@ -203,12 +198,12 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
     }
 
     override fun selectQuality(movieUrl: String, movieName: String) {
-//        findNavController().navigate(
-//            DetailsFragmentDirections.actionDetailsFragmentToStreamFragment(
-//                movieUrl,
-//                movieName
-//            )
-//        )
-//        alertDialog.dismiss()
+        findNavController().navigate(
+            DetailsFragmentDirections.actionDetailsFragmentToStreamFragment(
+                movieUrl,
+                movieName
+            )
+        )
+        alertDialog.dismiss()
     }
 }

@@ -9,6 +9,8 @@
         <entry key="../../../../../layout/compose-model-1634745490343.xml" value="0.21675084175084175" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/gradient_bg.xml" value="0.114" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_crown.xml" value="0.114" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_favorite_selected.xml" value="0.114" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_favorite_unselected.xml" value="0.114" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_logo.xml" value="0.114" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_play_circle_outline_black_48dp.xml" value="0.114" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/activity_country.xml" value="0.25" />
@@ -34,6 +36,7 @@
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/screen_shot_movie_rv.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/search_bar_shape.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/menu/bottom_nav_items.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Wilson/.gradle/caches/transforms-3/8d787f751470d8b27892ce437d0f4a94/transformed/jetified-exoplayer-ui-2.9.6/res/drawable-anydpi-v21/exo_icon_play.xml" value="0.114" />
       </map>
     </option>
   </component>

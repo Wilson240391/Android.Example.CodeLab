@@ -24,23 +24,23 @@
         <argument
             android:name="movieId"
             app:argType="integer"/>
-<!--            <action-->
-<!--                android:id="@+id/action_detailsFragment_to_streamFragment"-->
-<!--                app:destination="@id/streamFragment" />-->
+            <action
+                android:id="@+id/action_detailsFragment_to_streamFragment"
+                app:destination="@id/streamFragment" />
     </fragment>
-    <!--    <fragment-->
-    <!--        android:id="@+id/streamFragment"-->
-    <!--        android:name="com.mhmdawad.torrentmovies.ui.fragments.stream.StreamFragment"-->
-    <!--        android:label="fragment_stream"-->
-    <!--        tools:layout="@layout/fragment_stream" >-->
-    <!--        <argument-->
-    <!--            android:name="movieUrl"-->
-    <!--            app:argType="string"-->
-    <!--            app:nullable="true" />-->
-    <!--        <argument-->
-    <!--            android:name="movieName"-->
-    <!--            app:argType="string" />-->
-    <!--    </fragment>-->
+        <fragment
+            android:id="@+id/streamFragment"
+            android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.stream.StreamFragment"
+            android:label="fragment_stream"
+            tools:layout="@layout/fragment_stream" >
+            <argument
+                android:name="movieUrl"
+                app:argType="string"
+                app:nullable="true" />
+            <argument
+                android:name="movieName"
+                app:argType="string" />
+        </fragment>
         <fragment
             android:id="@+id/favoritesFragment"
             android:name="eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.favorites.FavoritesFragment"

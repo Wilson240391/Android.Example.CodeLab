@@ -23,23 +23,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-<!--            <com.like.LikeButton-->
-<!--                android:id="@+id/favMovie"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:animateLayoutChanges="true"-->
-<!--                android:elevation="10dp"-->
-<!--                app:anim_scale_factor="1.8"-->
-<!--                app:dots_primary_color="@color/colorAccent"-->
-<!--                app:dots_secondary_color="@color/colorRed"-->
-<!--                app:icon_size="30dp"-->
-<!--                app:icon_type="heart"-->
-<!--                app:layout_constraintBottom_toTopOf="@+id/detailsMovieCover"-->
-<!--                app:layout_constraintEnd_toEndOf="@+id/detailsMovieCover"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/detailsMovieCover"-->
-<!--                app:layout_goneMarginEnd="0dp"-->
-<!--                app:like_drawable="@drawable/heart_on"-->
-<!--                app:unlike_drawable="@drawable/heart_off" />-->
+            <ImageView
+                android:id="@+id/favMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/detailsMovieCover"
+                app:layout_constraintEnd_toEndOf="@+id/detailsMovieCover"
+                app:layout_constraintTop_toTopOf="@+id/detailsMovieCover"
+                app:layout_goneMarginEnd="0dp"
+                android:src="@drawable/ic_favorite_unselected" />
 
             <ImageButton
                 android:id="@+id/detailsBackArrow"
@@ -86,10 +80,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/gradient_bg"/>
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/gradient_bg_top"/>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gradient_bg_top"/>
             </FrameLayout>
 
             <TextView
@@ -222,8 +216,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/screenShotsRV"
                 app:layout_constraintVertical_bias="0.0">
-<!--                app:layout_constraintTop_toBottomOf="@+id/screenShotsRV"-->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -291,15 +285,11 @@
                     android:background="@null"
                     android:elevation="8dp"
                     android:padding="8dp"
-                    app:srcCompat="@android:drawable/ic_media_play"
-                    app:layout_constraintTop_toTopOf="@+id/textView3"
-                    app:layout_constraintStart_toStartOf="@+id/textView3"
-                    app:layout_constraintEnd_toEndOf="@+id/textView3"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView3"/>
-<!--                app:layout_constraintTop_toTopOf="@+id/trailerView"
-                    app:layout_constraintStart_toStartOf="@+id/trailerView"
+                    app:layout_constraintBottom_toBottomOf="@+id/trailerView"
                     app:layout_constraintEnd_toEndOf="@+id/trailerView"
-                    app:layout_constraintBottom_toBottomOf="@+id/trailerView"-->
+                    app:layout_constraintStart_toStartOf="@+id/trailerView"
+                    app:layout_constraintTop_toTopOf="@+id/trailerView"
+                    app:srcCompat="@android:drawable/ic_media_play" />
 
                 <TextView
                     android:id="@+id/textView3"
