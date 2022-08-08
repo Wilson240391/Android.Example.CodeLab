@@ -11,8 +11,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/favMovieContainer"
-            android:layout_width="@dimen/_160sdp"
-            android:layout_height="@dimen/_240sdp"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_300sdp"
             app:cardCornerRadius="15dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline6"
             app:layout_constraintEnd_toEndOf="parent"

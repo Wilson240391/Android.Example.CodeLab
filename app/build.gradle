@@ -120,24 +120,27 @@ dependencies {
     implementation "androidx.room:room-ktx:$roomDatabase"
 
     //Image Load
-    def glideVersion = '4.8.0'
+    def glideVersion = '4.11.0'
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     implementation 'io.coil-kt:coil-compose:2.1.0'
-
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.leanback:leanback:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
 //    // TorrentStream
 //    implementation 'com.github.TorrentStream:TorrentStream-Android:2.7.0'
 //    // Like Button
 //    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
-
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    //Youtube
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.3'
-    // RecyclerView Discrete
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    //RecyclerView Discrete
     implementation 'com.yarolegovich:discrete-scrollview:1.5.1'
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
-    // ExoPlayer
+    //ExoPlayer
     implementation 'com.google.android.exoplayer:exoplayer:2.9.6'
     //Koin
     def Koin_Version = '2.1.5'

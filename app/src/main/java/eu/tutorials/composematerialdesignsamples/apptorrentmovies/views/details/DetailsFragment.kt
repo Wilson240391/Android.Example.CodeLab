@@ -1,8 +1,13 @@
 package eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.details
 
+import android.app.ActivityOptions
 import android.app.AlertDialog
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.transition.TransitionInflater
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,10 +16,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
+import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
+import com.google.android.youtube.player.YouTubePlayerFragment
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import com.yarolegovich.discretescrollview.transform.Pivot
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.CastItem
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.DelegatedYouTubePlayerListener
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentDetailsBinding
 import eu.tutorials.composematerialdesignsamples.databinding.MovieDialogBinding
 import eu.tutorials.composematerialdesignsamples.util.*
@@ -22,25 +37,30 @@ import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listener
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
 
-class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComponent,
-    IOnBackPressed, QualityListener {
+class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComponent, IOnBackPressed, QualityListener {
 
     private lateinit var mbindig: FragmentDetailsBinding
     private lateinit var mbindigMovieovieDialog: MovieDialogBinding
-    private lateinit var ytPlayer: YouTubePlayer
     private var ytFullScreen = false
     private lateinit var viewModel: DetailsViewModel
     private val args: DetailsFragmentArgs by navArgs()
-    //private val ytFragment by lazy { childFragmentManager.findFragmentById(R.id.trailerView) as YouTubePlayerSupportFragmentX? }
     private lateinit var alertDialog: AlertDialog
+    private var youTubePlayerCurrentPosition: Float = 0f
+    private lateinit var player: com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+    companion object {
+        const val YOUTUBE_PLAYER_VIEW_REQUEST_CODE = 189
+        private const val SCROLL_STATE = "com.kpstv.yts:detailfragment:scroll_state"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        /** Initializing YouTube player instance */
         mbindig = FragmentDetailsBinding.inflate(inflater, container, false)
         mbindigMovieovieDialog = MovieDialogBinding.inflate(inflater, container, false)
+        initializeYoutubePlayer()
         return mbindig.root
     }
 
@@ -91,12 +111,15 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
             mbindig.movieMpaRating.textOrGone(mpaRating)
             mbindig.movieDescription.text = descriptionFull
             mbindig.movieRatingTxt.formatText(R.string.mpaRating, rating.toString())
-            mbindig.initYoutube.apply {
+            mbindig.afYtPreviewImage.apply {
                 setOnClickListener {
-                    initYoutubePlayer(ytTrailerCode!!)
+                    setPreviews(movie)
                     gone()
                 }
             }
+            setPreviews(movie)
+            mbindig.shimmerFrame.visibility = View.GONE
+            mbindig.shimmerFrameYT.visibility = View.GONE
             initRecyclerViews(
                 cast!!,
                 listOf(
@@ -134,38 +157,79 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
             mbindig.castRV.adapter = MovieCastAdapter(castList)
         mbindig.screenShotsRV.apply {
             adapter = ScreenShotsAdapter(screenShotImages)
-//            val transformer: ScaleTransformer = get()
-//            setItemTransformer(transformer)
         }
+        mbindig.screenShotsRV.setItemTransformer(
+            ScaleTransformer.Builder()
+                .setMaxScale(1f)
+                .setMinScale(0.9f)
+                .setPivotX(Pivot.X.CENTER) // CENTER is a default one
+                .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
+                .build()
+        )
     }
 
-    private fun initYoutubePlayer(ytTrailerCode: String) {
-//        mbindig.ytFragment?.initialize(
-//            DeveloperKey.DEVELOPER_API,
-//            object : YouTubePlayer.OnInitializedListener {
-//                override fun onInitializationSuccess(
-//                    provider: YouTubePlayer.Provider?,
-//                    player: YouTubePlayer?,
-//                    wasRestored: Boolean
-//                ) {
-//                    try {
-//                        if (ytTrailerCode.isEmpty())
-//                            throw IllegalArgumentException()
-//                        ytPlayer = player!!
-//                        ytPlayer.setOnFullscreenListener(this@DetailsFragment)
-//                        if (!wasRestored)
-//                            ytPlayer.cueVideo(ytTrailerCode)
-//                    } catch (e: IllegalArgumentException) {
-//                        youtubeLayout.gone()
-//                    }
+    private fun setPreviews(movie: Movie) {
+        Glide.with(requireView()).asBitmap().load(movie.backgroundImage)
+            .into(object : CustomTarget<Bitmap>() {
+                override fun onLoadCleared(placeholder: Drawable?) {}
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    if (!isRemoving) {
+                        //mbindig.root.enableDelayedTransition()
+                        mbindig.afYtPreviewImage.setImageBitmap(resource)
+                        mbindig.afYtPreviewImage.setOnClickListener {
+                            if (::player.isInitialized) {
+                                movie.ytTrailerCode?.let { it1 -> player.loadVideo(it1, 0f) }
+                                mbindig.trailerView.show()
+                            } else {
+                                mbindig.afYtPreviewPlay.visibility = View.GONE
+                                mbindig.afYtPreviewProgressBar.show()
+                            }
+                        }
+                        mbindig.afYtPreview.show()
+                    }
+                }
+            })
+        mbindig.root.visibility = View.VISIBLE
+    }
+
+    private fun initializeYoutubePlayer() {
+        mbindig.trailerView.enableAutomaticInitialization = false;
+        mbindig.trailerView.initialize(object :
+            YouTubePlayerListener by DelegatedYouTubePlayerListener {
+            override fun onCurrentSecond(
+                youTubePlayer: com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer,
+                second: Float
+            ) {
+                youTubePlayerCurrentPosition = second
+            }
+            override fun onReady(youTubePlayer: com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer) {
+                player = youTubePlayer
+                mbindig.afYtPreviewProgressBar.visibility = View.GONE
+                mbindig.afYtPreviewPlay.visibility = View.VISIBLE
+//                buttonFullscreen.setOnClickListener {
+//                    ytPlayer.pause()
+//                    val i = Intent(requireContext(), PlayerActivity::class.java)
+//                    i.putExtra(PlayerActivity.VIDEO_ID, movieDetail.yt_trailer_id)
+//                    i.putExtra(PlayerActivity.LAST_PLAYED, youTubePlayerCurrentPosition)
+//                    startActivityForResult(i, YOUTUBE_PLAYER_VIEW_REQUEST_CODE)
 //                }
-//                override fun onInitializationFailure(
-//                    p0: YouTubePlayer.Provider?,
-//                    p1: YouTubeInitializationResult?
-//                ) {
-//                    showToast(resources.getString(R.string.checkYoutube))
-//                }
-//            })
+            }
+            override fun onStateChange(
+                youTubePlayer: com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer,
+                state: PlayerConstants.PlayerState
+            ) {
+                when (state) {
+                    PlayerConstants.PlayerState.PLAYING -> mbindig.buttonFullscreen.show()
+                    PlayerConstants.PlayerState.PAUSED -> mbindig.buttonFullscreen.visibility = View.GONE
+                    PlayerConstants.PlayerState.ENDED -> {
+                        mbindig.afYtPreviewPlay.visibility = View.VISIBLE
+                        mbindig.afYtPreviewProgressBar.visibility = View.GONE
+                        mbindig.trailerView.visibility = View.GONE
+                        mbindig.buttonFullscreen.visibility = View.GONE
+                    }
+                }
+            }
+        })
     }
 
     private fun showMovieQualityDialog(movieData: Movie?, view: View) {
@@ -189,7 +253,7 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
 
     override fun onBackPressed(): Boolean {
         if (ytFullScreen)
-            ytPlayer.setFullscreen(false)
+            //player.setFullscreen(false)
         else
             findNavController().popBackStack()
         return false
@@ -203,5 +267,11 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
             )
         )
         alertDialog.dismiss()
+    }
+
+    override fun onDestroyView() {
+        if (::player.isInitialized) player.pause()
+        requireView().findViewById<YouTubePlayerView>(R.id.trailerView).release()
+        super.onDestroyView()
     }
 }

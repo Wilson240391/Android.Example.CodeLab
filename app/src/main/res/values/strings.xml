@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Design Samples</string>
+    <string name="app_name">Wilson Design Samples</string>
     <!--movies-->
     <string name="screen_title_home">Home</string>
     <string name="screen_title_action_movies">Action Movies</string>
