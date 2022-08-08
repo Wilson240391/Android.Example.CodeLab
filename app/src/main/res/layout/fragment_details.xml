@@ -301,8 +301,8 @@
             <LinearLayout
                 android:id="@+id/youtubeLayout"
                 android:animateLayoutChanges="false"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
@@ -314,52 +314,51 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/af_yt_preview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     app:cardCornerRadius="7dp">
 
                     <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal">
 
                         <FrameLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="180dp"
                             android:foreground="@drawable/preview_background">
-
                             <ImageView
                                 android:clickable="true"
                                 android:focusable="true"
                                 android:id="@+id/af_yt_preview_image"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="180dp"
                                 android:scaleType="centerCrop" />
                         </FrameLayout>
+
                         <com.facebook.shimmer.ShimmerFrameLayout
                             app:shimmer_auto_start="true"
                             android:id="@+id/shimmerFrameYT"
                             android:background="?colorPrimary"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
-                            <ImageView
-                                android:id="@+id/af_yt_preview_play"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_centerInParent="true"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ic_play_circle"
-                                app:tint="@color/text_light" />
                         </com.facebook.shimmer.ShimmerFrameLayout>
 
-
+                        <ImageView
+                            android:id="@+id/af_yt_preview_play"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_play_circle"
+                            app:tint="@color/text_light" />
                     </RelativeLayout>
 
                     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                         android:transitionName="youtubeView"
                         android:visibility="gone"
                         android:id="@+id/trailerView"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="180dp"
                         app:showFullScreenButton="false" />
 

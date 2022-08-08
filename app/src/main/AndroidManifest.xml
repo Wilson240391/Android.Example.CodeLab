@@ -24,6 +24,10 @@
             android:name=".appcountries.views.CountryActivity"
             android:exported="false" />
         <activity
+            android:name=".apptorrentmovies.player.PlayerActivity"
+            android:screenOrientation="landscape"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

@@ -29,6 +29,7 @@ import com.yarolegovich.discretescrollview.transform.Pivot
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.CastItem
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.player.PlayerActivity
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.DelegatedYouTubePlayerListener
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentDetailsBinding
 import eu.tutorials.composematerialdesignsamples.databinding.MovieDialogBinding
@@ -185,6 +186,13 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
                                 mbindig.afYtPreviewProgressBar.show()
                             }
                         }
+                        mbindig.buttonFullscreen.setOnClickListener {
+                            player.pause()
+                            val i = Intent(requireContext(), PlayerActivity::class.java)
+                            i.putExtra(PlayerActivity.VIDEO_ID, movie.ytTrailerCode)
+                            i.putExtra(PlayerActivity.LAST_PLAYED, youTubePlayerCurrentPosition)
+                            startActivityForResult(i, YOUTUBE_PLAYER_VIEW_REQUEST_CODE)
+                        }
                         mbindig.afYtPreview.show()
                     }
                 }
@@ -206,13 +214,6 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
                 player = youTubePlayer
                 mbindig.afYtPreviewProgressBar.visibility = View.GONE
                 mbindig.afYtPreviewPlay.visibility = View.VISIBLE
-//                buttonFullscreen.setOnClickListener {
-//                    ytPlayer.pause()
-//                    val i = Intent(requireContext(), PlayerActivity::class.java)
-//                    i.putExtra(PlayerActivity.VIDEO_ID, movieDetail.yt_trailer_id)
-//                    i.putExtra(PlayerActivity.LAST_PLAYED, youTubePlayerCurrentPosition)
-//                    startActivityForResult(i, YOUTUBE_PLAYER_VIEW_REQUEST_CODE)
-//                }
             }
             override fun onStateChange(
                 youTubePlayer: com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer,
