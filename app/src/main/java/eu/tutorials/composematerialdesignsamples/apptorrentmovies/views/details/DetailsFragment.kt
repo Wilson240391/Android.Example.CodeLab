@@ -18,6 +18,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.google.android.youtube.player.YouTubePlayer
+import com.like.LikeButton
+import com.like.OnLikeListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -36,6 +38,7 @@ import eu.tutorials.composematerialdesignsamples.util.torrents.Resource
 import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.QualityListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
+import org.koin.core.get
 
 class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComponent,
     IOnBackPressed, QualityListener {
@@ -77,11 +80,7 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
 
     private fun observeObservers() {
         viewModel.observeFavMovieExist().observe(viewLifecycleOwner, Observer {
-            if(it) {
-                mbindig.favMovie.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_favorite_selected))
-            } else {
-                mbindig.favMovie.setImageDrawable(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_favorite_unselected))
-            }
+            mbindig.favMovie.isLiked = it
         })
         viewModel.observeMovieDetails().observe(viewLifecycleOwner, Observer {
             when (it) {
@@ -140,14 +139,15 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
         mbindig.detailsBackArrow.setOnClickListener {
             onBackPressed()
         }
-        mbindig.favMovie.setOnClickListener {
-            if (viewModel.observeFavMovieExist().value == true) {
-                viewModel.deleteMovieFromFavorite(id!!)
-            }
-            else {
+        mbindig.favMovie.setOnLikeListener(object : OnLikeListener {
+            override fun liked(likeButton: LikeButton?) {
                 viewModel.addMovieToFavorite(this@with)
             }
-        }
+
+            override fun unLiked(likeButton: LikeButton?) {
+                viewModel.deleteMovieFromFavorite(id!!)
+            }
+        })
     }
 
     private fun initRecyclerViews(castList: List<CastItem>, screenShotImages: List<String>) {
@@ -156,16 +156,18 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
         else
             mbindig.castRV.adapter = MovieCastAdapter(castList)
         mbindig.screenShotsRV.apply {
+            val transformer: com.yarolegovich.discretescrollview.transform.ScaleTransformer = get()
+            setItemTransformer(transformer)
             adapter = ScreenShotsAdapter(screenShotImages)
         }
-        mbindig.screenShotsRV.setItemTransformer(
-            ScaleTransformer.Builder()
-                .setMaxScale(1f)
-                .setMinScale(0.9f)
-                .setPivotX(Pivot.X.CENTER) // CENTER is a default one
-                .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
-                .build()
-        )
+//        mbindig.screenShotsRV.setItemTransformer(
+//            ScaleTransformer.Builder()
+//                .setMaxScale(1f)
+//                .setMinScale(0.9f)
+//                .setPivotX(Pivot.X.CENTER) // CENTER is a default one
+//                .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
+//                .build()
+//        )
     }
 
     private fun setPreviews(movie: Movie) {
@@ -273,29 +275,4 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
         requireView().findViewById<YouTubePlayerView>(R.id.trailerView).release()
         super.onDestroyView()
     }
-
-//    private fun loadRecommendation() {
-//        val suggestionListener = SuggestionCallback(
-//            onComplete = { movies, tag, isMoreAvailable ->
-//                val recommendLayout =
-//                    CustomMovieLayout(requireContext(), getString(R.string.recommend))
-//                recommendLayout.injectViewAt(binding.afSuggestionAddLayout)
-//                recommendLayout.listenForClicks { view, movie ->
-//                    view.scaleInOut()
-//                    navViewModel.goToDetail(tmDbId = movie.movieId?.toString(), add = true)
-//                }
-//                recommendLayout.setupCallbacks(
-//                    navViewModel,
-//                    movies,
-//                    "$tag/recommendations",
-//                    isMoreAvailable
-//                )
-//            },
-//            onFailure = { e ->
-//                e.printStackTrace()
-//            }
-//        )
-//
-//        viewModel.getRecommendations(movieDetail.imdb_code, suggestionListener)
-//    }
 }

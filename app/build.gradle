@@ -127,6 +127,8 @@ dependencies {
     implementation 'androidx.leanback:leanback:1.0.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    // Like Button
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
     //OpenSubtitles
     implementation 'com.github.masterwok:open-subtitles-android:0.0.8'
     // TorrentStream

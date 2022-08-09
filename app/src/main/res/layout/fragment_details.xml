@@ -23,17 +23,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <com.like.LikeButton
                 android:id="@+id/favMovie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:animateLayoutChanges="true"
                 android:elevation="10dp"
+                app:anim_scale_factor="1.8"
+                app:dots_primary_color="@color/colorAccent"
+                app:dots_secondary_color="@color/colorRed"
+                app:icon_size="7dp"
+                app:icon_type="heart"
                 app:layout_constraintBottom_toTopOf="@+id/detailsMovieCoverCard"
                 app:layout_constraintEnd_toEndOf="@+id/detailsMovieCoverCard"
                 app:layout_constraintTop_toTopOf="@+id/detailsMovieCoverCard"
                 app:layout_goneMarginEnd="0dp"
-                android:src="@drawable/ic_favorite_unselected" />
+                app:like_drawable="@drawable/heart_on"
+                app:unlike_drawable="@drawable/heart_off" />
 
             <ImageButton
                 android:id="@+id/detailsBackArrow"

@@ -80,10 +80,10 @@ class FavoritesFragment : Fragment(), FavoriteListener, KoinComponent,
         }
         mbindig.favoriteRV.setItemTransformer(
             ScaleTransformer.Builder()
-                .setMaxScale(1f)
-                .setMinScale(0.9f)
-                .setPivotX(Pivot.X.CENTER) // CENTER is a default one
-                .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
+                .setMaxScale(1.05f)
+                .setMinScale(0.8f)
+                .setPivotX(Pivot.X.CENTER)
+                .setPivotY(Pivot.Y.BOTTOM)
                 .build()
         )
     }

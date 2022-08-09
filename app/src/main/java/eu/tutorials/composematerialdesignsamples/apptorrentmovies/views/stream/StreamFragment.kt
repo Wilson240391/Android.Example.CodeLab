@@ -181,7 +181,8 @@ class StreamFragment : Fragment(), KoinComponent, TorrentListener, SubtitleListe
 
     override fun onPause() {
         super.onPause()
-        torrentStream.currentTorrent.pause()
+        if (torrentStream.currentTorrent != null)
+            torrentStream.currentTorrent.pause()
         if (this::simplePlayer.isInitialized) simplePlayer.stopPlayer()
 
     }
