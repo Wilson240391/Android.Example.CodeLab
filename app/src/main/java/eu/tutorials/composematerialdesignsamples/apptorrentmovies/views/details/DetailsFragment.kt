@@ -22,6 +22,7 @@ import com.bumptech.glide.request.transition.Transition
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerFragment
+import com.kpstv.yts.extensions.SuggestionCallback
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -169,7 +170,7 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
     }
 
     private fun setPreviews(movie: Movie) {
-        Glide.with(requireView()).asBitmap().load(movie.backgroundImage)
+        Glide.with(requireView()).asBitmap().load(movie.largeCoverImage)
             .into(object : CustomTarget<Bitmap>() {
                 override fun onLoadCleared(placeholder: Drawable?) {}
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
@@ -274,4 +275,29 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
         requireView().findViewById<YouTubePlayerView>(R.id.trailerView).release()
         super.onDestroyView()
     }
+
+//    private fun loadRecommendation() {
+//        val suggestionListener = SuggestionCallback(
+//            onComplete = { movies, tag, isMoreAvailable ->
+//                val recommendLayout =
+//                    CustomMovieLayout(requireContext(), getString(R.string.recommend))
+//                recommendLayout.injectViewAt(binding.afSuggestionAddLayout)
+//                recommendLayout.listenForClicks { view, movie ->
+//                    view.scaleInOut()
+//                    navViewModel.goToDetail(tmDbId = movie.movieId?.toString(), add = true)
+//                }
+//                recommendLayout.setupCallbacks(
+//                    navViewModel,
+//                    movies,
+//                    "$tag/recommendations",
+//                    isMoreAvailable
+//                )
+//            },
+//            onFailure = { e ->
+//                e.printStackTrace()
+//            }
+//        )
+//
+//        viewModel.getRecommendations(movieDetail.imdb_code, suggestionListener)
+//    }
 }
