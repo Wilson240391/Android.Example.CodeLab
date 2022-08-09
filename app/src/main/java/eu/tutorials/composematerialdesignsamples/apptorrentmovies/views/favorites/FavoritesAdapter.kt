@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.FavoriteMovie
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.FavoriteListener
+import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.FavoriteListener
 import eu.tutorials.composematerialdesignsamples.databinding.FavoriteLayoutRvBinding
 import eu.tutorials.composematerialdesignsamples.util.downloadImage
 

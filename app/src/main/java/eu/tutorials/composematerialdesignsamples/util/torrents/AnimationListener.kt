@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.util
+package eu.tutorials.composematerialdesignsamples.util.torrents
 
 import android.view.animation.Animation
 

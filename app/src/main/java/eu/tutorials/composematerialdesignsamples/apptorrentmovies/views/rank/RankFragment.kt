@@ -13,7 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentRankBinding
 import eu.tutorials.composematerialdesignsamples.util.*
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.AdapterListener
+import eu.tutorials.composematerialdesignsamples.util.torrents.Resource
+import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.AdapterListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 class RankFragment : Fragment(),

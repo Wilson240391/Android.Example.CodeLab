@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.FavoriteMovie
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.MainRepository
-import eu.tutorials.composematerialdesignsamples.util.Resource
+import eu.tutorials.composematerialdesignsamples.util.torrents.Resource
 import kotlinx.coroutines.launch
 
 class FavoriteViewModel(private val repository: MainRepository) : ViewModel() {

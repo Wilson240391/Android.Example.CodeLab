@@ -65,7 +65,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categoryRV">
 
-        <eu.tutorials.composematerialdesignsamples.util.GridRecyclerView
+        <eu.tutorials.composematerialdesignsamples.util.torrents.GridRecyclerView
             android:id="@+id/exploreRV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

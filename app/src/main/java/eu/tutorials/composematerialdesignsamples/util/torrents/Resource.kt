@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.util
+package eu.tutorials.composematerialdesignsamples.util.torrents
 
 sealed class Resource<T>(
     val data: T? = null,

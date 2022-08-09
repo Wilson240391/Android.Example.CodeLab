@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.masterwok.opensubtitlesandroid.models.OpenSubtitleItem
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.SubtitleListener
+import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.SubtitleListener
 import eu.tutorials.composematerialdesignsamples.databinding.MovieSubtitleDialogRvBinding
 
 class MovieSubtitlesAdapter(private val subtitleList: Array<OpenSubtitleItem>,

@@ -1,6 +1,6 @@
-package eu.tutorials.composematerialdesignsamples.util
+package eu.tutorials.composematerialdesignsamples.util.news
 
-import eu.tutorials.composematerialdesignsamples.util.ArticleCategory.*
+import eu.tutorials.composematerialdesignsamples.util.news.ArticleCategory.*
 
 enum class ArticleCategory(val categoryName:String) {
     BUSINESS("business"),

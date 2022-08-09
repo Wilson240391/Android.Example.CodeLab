@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.util;
+package eu.tutorials.composematerialdesignsamples.util.news;
 
 import android.view.View;
 

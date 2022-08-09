@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners
+package eu.tutorials.composematerialdesignsamples.util.torrents.listeners
 
 import com.masterwok.opensubtitlesandroid.models.OpenSubtitleItem
 

@@ -127,6 +127,10 @@ dependencies {
     implementation 'androidx.leanback:leanback:1.0.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    //OpenSubtitles
+    implementation 'com.github.masterwok:open-subtitles-android:0.0.8'
+    // TorrentStream
+    implementation 'com.github.TorrentStream:TorrentStream-Android:2.7.0'
     // Fuel
     def version_fuel = '1.15.0'
     implementation "com.github.kittinunf.fuel:fuel-android:$version_fuel"

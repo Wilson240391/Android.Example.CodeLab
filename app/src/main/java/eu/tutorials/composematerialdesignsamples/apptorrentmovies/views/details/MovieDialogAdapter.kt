@@ -7,7 +7,7 @@ import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.TorrentsDetails
 import eu.tutorials.composematerialdesignsamples.databinding.MovieQualityDialogRvBinding
 import eu.tutorials.composematerialdesignsamples.util.formatText
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.QualityListener
+import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.QualityListener
 
 class MovieDialogAdapter(private val qualityList: List<TorrentsDetails>, private val movieName: String,
                          private val adapterListener: QualityListener

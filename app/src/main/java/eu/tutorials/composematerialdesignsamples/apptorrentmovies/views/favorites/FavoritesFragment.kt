@@ -14,10 +14,11 @@ import com.yarolegovich.discretescrollview.transform.Pivot
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentFavoritesBinding
 import eu.tutorials.composematerialdesignsamples.util.*
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.FavoriteListener
+import eu.tutorials.composematerialdesignsamples.util.news.ScaleTransformer
+import eu.tutorials.composematerialdesignsamples.util.torrents.Resource
+import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.FavoriteListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
-import org.koin.core.get
 
 
 class FavoritesFragment : Fragment(), FavoriteListener, KoinComponent,

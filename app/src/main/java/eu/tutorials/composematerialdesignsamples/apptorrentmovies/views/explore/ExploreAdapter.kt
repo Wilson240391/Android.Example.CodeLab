@@ -9,7 +9,7 @@ import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Mov
 import eu.tutorials.composematerialdesignsamples.databinding.ExploreLayoutRvBinding
 import eu.tutorials.composematerialdesignsamples.util.addList
 import eu.tutorials.composematerialdesignsamples.util.distinctList
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.AdapterListener
+import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.AdapterListener
 import kotlinx.coroutines.*
 
 class ExploreAdapter(private val adapterListener: AdapterListener) :

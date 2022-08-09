@@ -1,13 +1,11 @@
 package eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.details
 
-import android.app.ActivityOptions
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.transition.TransitionInflater
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,10 +17,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
-import com.google.android.youtube.player.YouTubePlayerFragment
-import com.kpstv.yts.extensions.SuggestionCallback
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -31,15 +26,19 @@ import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.CastItem
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.player.PlayerActivity
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.DelegatedYouTubePlayerListener
+import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.DelegatedYouTubePlayerListener
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentDetailsBinding
 import eu.tutorials.composematerialdesignsamples.databinding.MovieDialogBinding
 import eu.tutorials.composematerialdesignsamples.util.*
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.QualityListener
+import eu.tutorials.composematerialdesignsamples.util.news.ScaleTransformer
+import eu.tutorials.composematerialdesignsamples.util.torrents.IOnBackPressed
+import eu.tutorials.composematerialdesignsamples.util.torrents.Resource
+import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.QualityListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
 
-class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComponent, IOnBackPressed, QualityListener {
+class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComponent,
+    IOnBackPressed, QualityListener {
 
     private lateinit var mbindig: FragmentDetailsBinding
     private lateinit var mbindigMovieovieDialog: MovieDialogBinding
@@ -234,7 +233,6 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
     }
 
     private fun showMovieQualityDialog(movieData: Movie?, view: View) {
-        val viewGroup: ViewGroup? = view.findViewById(android.R.id.content)
         AlertDialog.Builder(view.context).apply {
             setTitle(resources.getString(R.string.movieQuality))
             setView(mbindigMovieovieDialog.root)

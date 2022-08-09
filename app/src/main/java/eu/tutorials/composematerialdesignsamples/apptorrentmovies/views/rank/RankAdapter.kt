@@ -10,7 +10,7 @@ import eu.tutorials.composematerialdesignsamples.databinding.MoviesRankRvBinding
 import eu.tutorials.composematerialdesignsamples.util.addList
 import eu.tutorials.composematerialdesignsamples.util.distinctList
 import eu.tutorials.composematerialdesignsamples.util.downloadImage
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.AdapterListener
+import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.AdapterListener
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

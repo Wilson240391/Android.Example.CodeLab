@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.util
+package eu.tutorials.composematerialdesignsamples.util.torrents
 
 import androidx.annotation.Nullable
 import androidx.recyclerview.widget.DiffUtil

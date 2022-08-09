@@ -6,7 +6,7 @@ import androidx.lifecycle.*
 import com.masterwok.opensubtitlesandroid.OpenSubtitlesUrlBuilder
 import com.masterwok.opensubtitlesandroid.models.OpenSubtitleItem
 import com.masterwok.opensubtitlesandroid.services.OpenSubtitlesService
-import eu.tutorials.composematerialdesignsamples.util.Resource
+import eu.tutorials.composematerialdesignsamples.util.torrents.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
