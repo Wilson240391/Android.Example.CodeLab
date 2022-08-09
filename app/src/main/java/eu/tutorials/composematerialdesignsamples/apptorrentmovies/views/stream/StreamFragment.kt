@@ -13,18 +13,21 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.source.*
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.listeners.SubtitleListener
+import eu.tutorials.composematerialdesignsamples.databinding.FragmentStreamBinding
+import eu.tutorials.composematerialdesignsamples.util.*
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
 import org.koin.core.get
 import java.io.File
 
 
-class StreamFragment : Fragment()
-// , KoinComponent, TorrentListener,
-//    SubtitleListener, Player.EventListener
-    {
+
+class StreamFragment : Fragment(), KoinComponent {
+//    , TorrentListener, SubtitleListener, Player.EventListener {
 //
+//    private lateinit var mbindig: FragmentStreamBinding
 //    private val args: StreamFragmentArgs by navArgs()
 //    private lateinit var simplePlayer: SimpleExoPlayer
 //    private lateinit var torrentStream: TorrentStream
@@ -33,24 +36,26 @@ class StreamFragment : Fragment()
 //    private lateinit var alertDialog: AlertDialog
 //    private lateinit var viewModel: StreamViewModel
 //
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-//        viewModel = getViewModel()
+//    override fun onCreateView(
+//        inflater: LayoutInflater,
+//        container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        mbindig = FragmentStreamBinding.inflate(inflater, container, false)
+//        return mbindig.root
 //    }
 //
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
-//
-//
+//        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+//        viewModel = getViewModel()
 //        initTorrentStream()
 //        observeObservers()
 //        viewsListener()
 //    }
 //
 //    private fun viewsListener() {
-//
-//        moviePlayer.setControllerVisibilityListener {
+//        mbindig.moviePlayer.setControllerVisibilityListener {
 //            with(activity?.window?.decorView) {
 //                if (it == 0)
 //                    this?.systemUiVisibility = showSystemUI()
@@ -58,8 +63,7 @@ class StreamFragment : Fragment()
 //                    this?.systemUiVisibility = hideSystemUI()
 //            }
 //        }
-//
-//        movieSubtitle.setOnClickListener {
+//        mbindig.movieSubtitle.setOnClickListener {
 //            viewModel.searchMovieSubtitle(args.movieName)
 //        }
 //    }
@@ -68,17 +72,17 @@ class StreamFragment : Fragment()
 //        viewModel.getSubtitlesData().observe(viewLifecycleOwner, Observer {
 //            when (it) {
 //                is Resource.Loading -> {
-//                    progressContainer.show()
+//                    mbindig.progressContainer.show()
 //                }
 //                is Resource.Loaded -> {
 //                    if (it.data!!.isNotEmpty())
 //                        showMovieSubtitlesDialog(it.data, requireView())
 //                    else
 //                        showToast(resources.getString(R.string.noSubtitle))
-//                    progressContainer.gone()
+//                    mbindig.progressContainer.gone()
 //                }
 //                is Resource.Error -> {
-//                    progressContainer.gone()
+//                    mbindig.progressContainer.gone()
 //                    showToast(it.msg!!)
 //                }
 //            }
@@ -126,7 +130,7 @@ class StreamFragment : Fragment()
 //
 //    private fun initPlayer(path: String) {
 //        simplePlayer = get()
-//        moviePlayer.player = simplePlayer
+//        mbindig.moviePlayer.player = simplePlayer
 //        val factory: DefaultDataSourceFactory = get()
 //        mediaSource = ExtractorMediaSource.Factory(factory).createMediaSource(Uri.parse(path))
 //        mergeMediaSource = MergingMediaSource(mediaSource)
@@ -151,9 +155,9 @@ class StreamFragment : Fragment()
 //
 //    override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
 //        if (playWhenReady && playbackState == Player.STATE_READY)
-//            progressContainer.gone()
+//            mbindig.progressContainer.gone()
 //        else if (playWhenReady && playbackState == Player.STATE_BUFFERING)
-//            progressContainer.show()
+//            mbindig.progressContainer.show()
 //    }
 //
 //    override fun onStreamReady(torrent: Torrent?) {
