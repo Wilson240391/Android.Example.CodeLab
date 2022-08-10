@@ -19,6 +19,7 @@ import eu.tutorials.composematerialdesignsamples.util.torrents.Resource
 import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.FavoriteListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
+import org.koin.core.get
 
 
 class FavoritesFragment : Fragment(), FavoriteListener, KoinComponent,
@@ -76,16 +77,10 @@ class FavoritesFragment : Fragment(), FavoriteListener, KoinComponent,
     private fun initRecyclerView() {
         mbindig.favoriteRV.apply {
             adapter = favAdapter
+            val transformer: com.yarolegovich.discretescrollview.transform.ScaleTransformer = get()
+            setItemTransformer(transformer)
             addOnItemChangedListener(this@FavoritesFragment)
         }
-        mbindig.favoriteRV.setItemTransformer(
-            ScaleTransformer.Builder()
-                .setMaxScale(1.05f)
-                .setMinScale(0.8f)
-                .setPivotX(Pivot.X.CENTER)
-                .setPivotY(Pivot.Y.BOTTOM)
-                .build()
-        )
     }
 
     override fun onDeleteFavMovie(id: Int) {

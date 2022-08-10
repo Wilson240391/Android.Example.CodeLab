@@ -160,14 +160,6 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
             setItemTransformer(transformer)
             adapter = ScreenShotsAdapter(screenShotImages)
         }
-//        mbindig.screenShotsRV.setItemTransformer(
-//            ScaleTransformer.Builder()
-//                .setMaxScale(1f)
-//                .setMinScale(0.9f)
-//                .setPivotX(Pivot.X.CENTER) // CENTER is a default one
-//                .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
-//                .build()
-//        )
     }
 
     private fun setPreviews(movie: Movie) {
@@ -261,13 +253,24 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
     }
 
     override fun selectQuality(movieUrl: String, movieName: String) {
-        findNavController().navigate(
-            DetailsFragmentDirections.actionDetailsFragmentToStreamFragment(
-                movieUrl,
-                movieName
+        Permissions.verifyStoragePermission(this) {
+            findNavController().navigate(
+                DetailsFragmentDirections.actionDetailsFragmentToStreamFragment(
+                    movieUrl,
+                    movieName
+                )
             )
-        )
-        alertDialog.dismiss()
+            alertDialog.dismiss()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        Permissions.processStoragePermission(requestCode, grantResults)
     }
 
     override fun onDestroyView() {

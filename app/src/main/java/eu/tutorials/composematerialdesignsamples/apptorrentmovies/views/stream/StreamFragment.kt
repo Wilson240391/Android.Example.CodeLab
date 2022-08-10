@@ -65,18 +65,10 @@ class StreamFragment : Fragment(), KoinComponent, TorrentListener, SubtitleListe
         viewsListener()
     }
 
-    private fun viewsListener() {
-        mbindig.moviePlayer.setControllerVisibilityListener {
-            with(activity?.window?.decorView) {
-                if (it == 0)
-                    this?.systemUiVisibility = showSystemUI()
-                else
-                    this?.systemUiVisibility = hideSystemUI()
-            }
-        }
-        mbindigExoPlayer.movieSubtitle.setOnClickListener {
-            viewModel.searchMovieSubtitle(args.movieName)
-        }
+    private fun initTorrentStream() {
+        torrentStream = get()
+        torrentStream.startStream(args.movieUrl)
+        torrentStream.addListener(this)
     }
 
     private fun observeObservers() {
@@ -111,26 +103,18 @@ class StreamFragment : Fragment(), KoinComponent, TorrentListener, SubtitleListe
         })
     }
 
-
-    private fun showMovieSubtitlesDialog(listOfSubtitles: Array<OpenSubtitleItem>, view: View) {
-        AlertDialog.Builder(view.context).apply {
-            setTitle(resources.getString(R.string.movieSubtitle))
-            setView(mbindigMovieovieDialog.root)
-            alertDialog = create()
+    private fun viewsListener() {
+        mbindig.moviePlayer.setControllerVisibilityListener {
+            with(activity?.window?.decorView) {
+                if (it == 0)
+                    this?.systemUiVisibility = showSystemUI()
+                else
+                    this?.systemUiVisibility = hideSystemUI()
+            }
         }
-        mbindigMovieovieDialog.movieDialogRV.apply {
-            addDividers()
-            adapter = MovieSubtitlesAdapter(listOfSubtitles, this@StreamFragment)
+        mbindigExoPlayer.movieSubtitle.setOnClickListener {
+            viewModel.searchMovieSubtitle(args.movieName)
         }
-        alertDialog.show()
-    }
-
-
-    private fun initTorrentStream() {
-        torrentStream = get()
-        torrentStream.startStream(args.movieUrl)
-        torrentStream.addListener(this)
-
     }
 
     private fun initPlayer(path: String) {
@@ -145,6 +129,19 @@ class StreamFragment : Fragment(), KoinComponent, TorrentListener, SubtitleListe
         }
     }
 
+    private fun showMovieSubtitlesDialog(listOfSubtitles: Array<OpenSubtitleItem>, view: View) {
+        AlertDialog.Builder(view.context).apply {
+            setTitle(resources.getString(R.string.movieSubtitle))
+            setView(mbindigMovieovieDialog.root)
+            alertDialog = create()
+        }
+        mbindigMovieovieDialog.movieDialogRV.apply {
+            addDividers()
+            adapter = MovieSubtitlesAdapter(listOfSubtitles, this@StreamFragment)
+        }
+        alertDialog.show()
+    }
+
     private fun addSubtitleToPlayer(data: Uri?) {
         val factory: DefaultDataSourceFactory = get()
         val textFormat: Format = get()
@@ -152,6 +149,14 @@ class StreamFragment : Fragment(), KoinComponent, TorrentListener, SubtitleListe
             .createMediaSource(data, textFormat, C.TIME_UNSET)
         mergeMediaSource = MergingMediaSource(mediaSource, textMediaSource)
         simplePlayer.addingSubtitle(mergeMediaSource, simplePlayer.currentPosition)
+    }
+
+    override fun onSubtitleClicked(subtitle: OpenSubtitleItem) {
+        viewModel.downloadSubtitle(
+            subtitle,
+            Uri.fromFile(File("${activity?.getExternalFilesDir(null)?.absolutePath}/${subtitle.SubFileName}"))
+        )
+
     }
 
     override fun onPlayerError(error: ExoPlaybackException?) {
@@ -202,14 +207,6 @@ class StreamFragment : Fragment(), KoinComponent, TorrentListener, SubtitleListe
         torrentStream.stopStream()
         if (this::simplePlayer.isInitialized)
             simplePlayer.release()
-    }
-
-    override fun onSubtitleClicked(subtitle: OpenSubtitleItem) {
-        viewModel.downloadSubtitle(
-            subtitle,
-            Uri.fromFile(File("${activity?.getExternalFilesDir(null)?.absolutePath}/${subtitle.SubFileName}"))
-        )
-
     }
 
     override fun onStreamPrepared(torrent: Torrent?) {
