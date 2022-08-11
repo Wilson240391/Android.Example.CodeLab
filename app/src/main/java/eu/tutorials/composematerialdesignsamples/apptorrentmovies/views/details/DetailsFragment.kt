@@ -110,7 +110,7 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
             mbindig.movieMpaRating.textOrGone(mpaRating)
             mbindig.movieDescription.text = descriptionFull
             mbindig.movieRatingTxt.formatText(R.string.mpaRating, rating.toString())
-            mbindig.afYtPreviewImage.apply {
+            mbindig.youtubeLayout.afYtPreviewImage.apply {
                 setOnClickListener {
                     setPreviews(movie)
                     gone()
@@ -118,7 +118,7 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
             }
             setPreviews(movie)
             mbindig.shimmerFrame.visibility = View.GONE
-            mbindig.shimmerFrameYT.visibility = View.GONE
+            mbindig.youtubeLayout.shimmerFrameYT.visibility = View.GONE
             initRecyclerViews(
                 cast!!,
                 listOf(
@@ -169,24 +169,24 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                     if (!isRemoving) {
                         //mbindig.root.enableDelayedTransition()
-                        mbindig.afYtPreviewImage.setImageBitmap(resource)
-                        mbindig.afYtPreviewImage.setOnClickListener {
+                        mbindig.youtubeLayout.afYtPreviewImage.setImageBitmap(resource)
+                        mbindig.youtubeLayout.afYtPreviewImage.setOnClickListener {
                             if (::player.isInitialized) {
                                 movie.ytTrailerCode?.let { it1 -> player.loadVideo(it1, 0f) }
-                                mbindig.trailerView.show()
+                                mbindig.youtubeLayout.trailerView.show()
                             } else {
-                                mbindig.afYtPreviewPlay.visibility = View.GONE
-                                mbindig.afYtPreviewProgressBar.show()
+                                mbindig.youtubeLayout.afYtPreviewPlay.visibility = View.GONE
+                                mbindig.youtubeLayout.afYtPreviewProgressBar.show()
                             }
                         }
-                        mbindig.buttonFullscreen.setOnClickListener {
+                        mbindig.youtubeLayout.buttonFullscreen.setOnClickListener {
                             player.pause()
                             val i = Intent(requireContext(), PlayerActivity::class.java)
                             i.putExtra(PlayerActivity.VIDEO_ID, movie.ytTrailerCode)
                             i.putExtra(PlayerActivity.LAST_PLAYED, youTubePlayerCurrentPosition)
                             startActivityForResult(i, YOUTUBE_PLAYER_VIEW_REQUEST_CODE)
                         }
-                        mbindig.afYtPreview.show()
+                        mbindig.youtubeLayout.afYtPreview.show()
                     }
                 }
             })
@@ -194,8 +194,8 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
     }
 
     private fun initializeYoutubePlayer() {
-        mbindig.trailerView.enableAutomaticInitialization = false;
-        mbindig.trailerView.initialize(object :
+        mbindig.youtubeLayout.trailerView.enableAutomaticInitialization = false;
+        mbindig.youtubeLayout.trailerView.initialize(object :
             YouTubePlayerListener by DelegatedYouTubePlayerListener {
             override fun onCurrentSecond(
                 youTubePlayer: com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer,
@@ -205,21 +205,21 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
             }
             override fun onReady(youTubePlayer: com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer) {
                 player = youTubePlayer
-                mbindig.afYtPreviewProgressBar.visibility = View.GONE
-                mbindig.afYtPreviewPlay.visibility = View.VISIBLE
+                mbindig.youtubeLayout.afYtPreviewProgressBar.visibility = View.GONE
+                mbindig.youtubeLayout.afYtPreviewPlay.visibility = View.VISIBLE
             }
             override fun onStateChange(
                 youTubePlayer: com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer,
                 state: PlayerConstants.PlayerState
             ) {
                 when (state) {
-                    PlayerConstants.PlayerState.PLAYING -> mbindig.buttonFullscreen.show()
-                    PlayerConstants.PlayerState.PAUSED -> mbindig.buttonFullscreen.visibility = View.GONE
+                    PlayerConstants.PlayerState.PLAYING -> mbindig.youtubeLayout.buttonFullscreen.show()
+                    PlayerConstants.PlayerState.PAUSED -> mbindig.youtubeLayout.buttonFullscreen.visibility = View.GONE
                     PlayerConstants.PlayerState.ENDED -> {
-                        mbindig.afYtPreviewPlay.visibility = View.VISIBLE
-                        mbindig.afYtPreviewProgressBar.visibility = View.GONE
-                        mbindig.trailerView.visibility = View.GONE
-                        mbindig.buttonFullscreen.visibility = View.GONE
+                        mbindig.youtubeLayout.afYtPreviewPlay.visibility = View.VISIBLE
+                        mbindig.youtubeLayout.afYtPreviewProgressBar.visibility = View.GONE
+                        mbindig.youtubeLayout.trailerView.visibility = View.GONE
+                        mbindig.youtubeLayout.buttonFullscreen.visibility = View.GONE
                     }
                 }
             }
