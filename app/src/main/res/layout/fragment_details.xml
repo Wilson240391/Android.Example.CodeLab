@@ -31,7 +31,7 @@
                 android:elevation="10dp"
                 app:anim_scale_factor="1.8"
                 app:dots_primary_color="@color/colorAccent"
-                app:dots_secondary_color="@color/colorRed"
+                app:dots_secondary_color="?colorPrimary"
                 app:icon_size="7dp"
                 app:icon_type="heart"
                 app:layout_constraintBottom_toTopOf="@+id/detailsMovieCoverCard"

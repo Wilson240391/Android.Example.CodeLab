@@ -9,15 +9,18 @@ import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.google.android.youtube.player.YouTubePlayer
+import com.kpstv.yts.extensions.SuggestionCallback
 import com.like.LikeButton
 import com.like.OnLikeListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
@@ -28,6 +31,7 @@ import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.CastItem
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.player.PlayerActivity
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.explore.ExploreFragmentDirections
 import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.DelegatedYouTubePlayerListener
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentDetailsBinding
 import eu.tutorials.composematerialdesignsamples.databinding.MovieDialogBinding
@@ -127,6 +131,7 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
                     mediumScreenshotImage3!!
                 )
             )
+            //loadCastMovies()
             viewsListener(this)
         }
     }
