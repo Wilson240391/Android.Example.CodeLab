@@ -275,6 +275,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/movieDescription" />
 
+            <TextView
+                android:id="@+id/tvsuggestions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/Similar"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/screenShotsRV" />
+
+            <include
+                android:id="@+id/similarLayout"
+                layout="@layout/fragment_detail_similar"/>
+
             <LinearLayout
                 android:id="@+id/castLayout"
                 android:layout_width="0dp"
@@ -285,7 +303,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/screenShotsRV"
+                app:layout_constraintTop_toBottomOf="@+id/similarLayout"
                 app:layout_constraintVertical_bias="0.0">
 
                 <TextView
@@ -308,24 +326,6 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvsuggestions"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/Similar"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/castLayout" />
-
-            <include
-                android:id="@+id/similarLayout"
-                layout="@layout/fragment_detail_similar"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
