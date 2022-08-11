@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesItem
-import eu.tutorials.composematerialdesignsamples.databinding.MoviesRankRvBinding
+import eu.tutorials.composematerialdesignsamples.databinding.FragmentRankItemBinding
 import eu.tutorials.composematerialdesignsamples.util.addList
 import eu.tutorials.composematerialdesignsamples.util.distinctList
 import eu.tutorials.composematerialdesignsamples.util.downloadImage
@@ -20,7 +20,7 @@ class RankAdapter(private val adapterListener: AdapterListener) :
     private val moviesList:MutableList<MoviesItem> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RankViewHolder {
-        val binding: MoviesRankRvBinding = MoviesRankRvBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding: FragmentRankItemBinding = FragmentRankItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return RankViewHolder(binding)
     }
 
@@ -47,7 +47,7 @@ class RankAdapter(private val adapterListener: AdapterListener) :
         notifyItemInserted(moviesList.size)
     }
 
-    inner class RankViewHolder(itemView: MoviesRankRvBinding) : RecyclerView.ViewHolder(itemView.root) {
+    inner class RankViewHolder(itemView: FragmentRankItemBinding) : RecyclerView.ViewHolder(itemView.root) {
         val rankMovieSort = itemView.rankMovieSort
         val rankMovieName = itemView.rankMovieName
         val rankMovieRating = itemView.rankMovieRating
