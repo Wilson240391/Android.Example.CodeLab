@@ -4,10 +4,13 @@ import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import eu.tutorials.composematerialdesignsamples.R
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.details.DetailsFragment
 
 fun getProgressDrawable(context: Context): CircularProgressDrawable {
     return CircularProgressDrawable(context).apply {
@@ -15,6 +18,10 @@ fun getProgressDrawable(context: Context): CircularProgressDrawable {
         centerRadius = 50f
         start()
     }
+}
+
+fun RecyclerView.setHorizontalRecyclerView(context: Context, recyclerView: RecyclerView){
+    recyclerView.layoutManager = LinearLayoutManager(context , RecyclerView.HORIZONTAL ,false)
 }
 
 fun ImageView.loadImage(uri: String?, progressDrawable: CircularProgressDrawable) {

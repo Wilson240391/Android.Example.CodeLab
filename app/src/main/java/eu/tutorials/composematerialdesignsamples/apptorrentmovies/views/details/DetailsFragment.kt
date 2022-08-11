@@ -9,42 +9,44 @@ import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
+import android.view.animation.GridLayoutAnimationController
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.google.android.youtube.player.YouTubePlayer
-import com.kpstv.yts.extensions.SuggestionCallback
 import com.like.LikeButton
 import com.like.OnLikeListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-import com.yarolegovich.discretescrollview.transform.Pivot
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.CastItem
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.player.PlayerActivity
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.explore.ExploreAdapter
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.explore.ExploreFragmentDirections
 import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.DelegatedYouTubePlayerListener
 import eu.tutorials.composematerialdesignsamples.databinding.FragmentDetailsBinding
 import eu.tutorials.composematerialdesignsamples.databinding.MovieDialogBinding
 import eu.tutorials.composematerialdesignsamples.util.*
-import eu.tutorials.composematerialdesignsamples.util.news.ScaleTransformer
 import eu.tutorials.composematerialdesignsamples.util.torrents.IOnBackPressed
 import eu.tutorials.composematerialdesignsamples.util.torrents.Resource
+import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.AdapterListener
 import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.QualityListener
 import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.core.KoinComponent
 import org.koin.core.get
 
 class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComponent,
+    AdapterListener,
     IOnBackPressed, QualityListener {
 
     private lateinit var mbindig: FragmentDetailsBinding
@@ -55,6 +57,7 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
     private lateinit var alertDialog: AlertDialog
     private var youTubePlayerCurrentPosition: Float = 0f
     private lateinit var player: com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+    private val similarAdapter by lazy { SimilarAdapter(this) }
     companion object {
         const val YOUTUBE_PLAYER_VIEW_REQUEST_CODE = 189
         private const val SCROLL_STATE = "com.kpstv.yts:detailfragment:scroll_state"
@@ -103,6 +106,31 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
                 }
             }
         })
+        viewModel.getMovies().observe(viewLifecycleOwner, Observer { dataObserve ->
+            when (dataObserve) {
+                is Resource.Loaded -> {
+                    mbindig.similarLayout.rvsuggestions.show()
+                    with(dataObserve.data) {
+                        similarAdapter.addList(this!!)
+                        for(i in this)
+                            println("Loaded======> ${i.timeSaved}")
+                    }
+                }
+                is Resource.NewData -> {
+                    with(dataObserve.data) {
+                        similarAdapter.updateList(this!!)
+                        for(i in this)
+                            println("NewData======> ${i.timeSaved}")
+                    }
+                }
+            }
+        })
+    }
+
+    private fun animationRV() {
+        val controller: GridLayoutAnimationController = get()
+        mbindig.similarLayout.rvsuggestions.layoutAnimation = controller
+        mbindig.similarLayout.rvsuggestions.startLayoutAnimation()
     }
 
     private fun showMovieDetails(movie: Movie) {
@@ -131,7 +159,6 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
                     mediumScreenshotImage3!!
                 )
             )
-            //loadCastMovies()
             viewsListener(this)
         }
     }
@@ -160,11 +187,13 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
             mbindig.castLayout.gone()
         else
             mbindig.castRV.adapter = MovieCastAdapter(castList)
-        mbindig.screenShotsRV.apply {
+            mbindig.screenShotsRV.apply {
             val transformer: com.yarolegovich.discretescrollview.transform.ScaleTransformer = get()
             setItemTransformer(transformer)
             adapter = ScreenShotsAdapter(screenShotImages)
         }
+        mbindig.similarLayout.rvsuggestions.layoutManager = LinearLayoutManager(requireContext() , RecyclerView.HORIZONTAL ,false)
+        mbindig.similarLayout.rvsuggestions.adapter = similarAdapter
     }
 
     private fun setPreviews(movie: Movie) {
@@ -282,5 +311,16 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
         if (::player.isInitialized) player.pause()
         requireView().findViewById<YouTubePlayerView>(R.id.trailerView).release()
         super.onDestroyView()
+    }
+
+    override fun itemClicked(pos: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun openMovie(movieID: Int, imageView: ImageView) {
+        val extras = FragmentNavigatorExtras(imageView to resources.getString(R.string.transitionName))
+        val action = DetailsFragmentDirections.actionDetailFragmentToDetailsFragment(movieID)
+        findNavController().navigate(action, extras)
+        activity?.hideBottomNav()
     }
 }

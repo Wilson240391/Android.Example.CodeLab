@@ -55,6 +55,7 @@
                 app:srcCompat="@drawable/ic_arrow_back" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/detailsMovieCoverCard"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_130sdp"
                 android:layout_marginStart="8dp"
@@ -63,38 +64,40 @@
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-                android:id="@+id/detailsMovieCoverCard">
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
                 <RelativeLayout
                     android:layout_width="130dp"
                     android:layout_height="180dp">
+
                     <FrameLayout
                         android:layout_width="130dp"
                         android:layout_height="180dp">
 
                         <ImageView
+                            android:id="@+id/detailsMovieCover"
+                            android:layout_width="130dp"
+                            android:layout_height="180dp"
                             android:clickable="true"
                             android:focusable="true"
                             android:outlineProvider="background"
-                            android:transitionName="banner_photo"
-                            android:id="@+id/detailsMovieCover"
                             android:scaleType="centerCrop"
-                            android:layout_width="130dp"
-                            android:layout_height="180dp" />
+                            android:transitionName="banner_photo" />
                     </FrameLayout>
+
                     <com.facebook.shimmer.ShimmerFrameLayout
-                        app:shimmer_auto_start="true"
                         android:id="@+id/shimmerFrame"
-                        android:background="?colorPrimary"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="?colorPrimary"
+                        app:shimmer_auto_start="true">
+
                         <ImageView
-                            app:tint="?attr/colorBackgroundFloating"
-                            android:layout_gravity="center"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_play_circle"/>
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_play_circle"
+                            app:tint="?attr/colorBackgroundFloating" />
                     </com.facebook.shimmer.ShimmerFrameLayout>
                 </RelativeLayout>
 
@@ -120,11 +123,12 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/gradient_bg"/>
+                    android:background="@drawable/gradient_bg" />
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/gradient_bg_top"/>
+                    android:background="@drawable/gradient_bg_top" />
             </FrameLayout>
 
             <TextView
@@ -212,11 +216,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:backgroundTint="?colorBackgroundFloating"
                 app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-                app:srcCompat="@drawable/exo_icon_play"
-                android:backgroundTint="?colorBackgroundFloating"/>
+                app:srcCompat="@drawable/exo_icon_play" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -243,6 +247,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
                 tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/trailer"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toTopOf="@+id/youtubeLayout"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <include
+                android:id="@+id/youtubeLayout"
+                layout="@layout/fragment_detail_youtube" />
+
+            <com.yarolegovich.discretescrollview.DiscreteScrollView
+                android:id="@+id/screenShotsRV"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_160sdp"
+                android:layout_marginTop="8dp"
+                app:dsv_orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movieDescription" />
 
             <LinearLayout
                 android:id="@+id/castLayout"
@@ -279,45 +310,22 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/tvsuggestions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="@string/screenshots"
+                android:text="@string/Similar"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/movieDescription" />
-
-            <com.yarolegovich.discretescrollview.DiscreteScrollView
-                android:id="@+id/screenShotsRV"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_160sdp"
-                android:layout_marginTop="8dp"
-                app:dsv_orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/trailer"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toTopOf="@+id/youtubeLayout"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/castLayout" />
 
             <include
-                android:id="@+id/youtubeLayout"
-                layout="@layout/fragment_detail_youtube" />
+                android:id="@+id/similarLayout"
+                layout="@layout/fragment_detail_similar"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

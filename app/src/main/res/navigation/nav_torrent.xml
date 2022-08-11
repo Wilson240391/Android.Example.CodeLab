@@ -27,6 +27,11 @@
             <action
                 android:id="@+id/action_detailsFragment_to_streamFragment"
                 app:destination="@id/streamFragment" />
+            <action
+                android:id="@+id/action_detailFragment_to_detailsFragment"
+                app:destination="@id/detailsFragment"
+                app:exitAnim="@anim/slide_out_left"
+                app:popExitAnim="@anim/slide_out_right" />
     </fragment>
         <fragment
             android:id="@+id/streamFragment"

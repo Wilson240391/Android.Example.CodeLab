@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="130dp"
+    android:layout_height="wrap_content"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.kpstv.imageloaderview.ImageLoaderView
+            android:id="@+id/ivMovie"
+            android:layout_width="120dp"
+            android:layout_height="@dimen/_170sdp"
+            android:layout_marginEnd="10dp"
+            app:corner_radius="5dp"
+            app:disable_ripple="true"
+            app:selectable="true" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/nameMovieTv"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="?android:textColor"
+        android:transitionName="contentTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Name Movie"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

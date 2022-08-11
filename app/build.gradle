@@ -126,6 +126,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.leanback:leanback:1.0.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'io.github.kaustubhpatange:imageloaderview:0.7-beta04'
 
     // Like Button
     implementation 'com.github.jd-alexander:LikeButton:0.2.3'
