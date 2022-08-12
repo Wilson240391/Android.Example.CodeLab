@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesItem
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesSuggest
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.MainRepository
 import eu.tutorials.composematerialdesignsamples.util.torrents.Resource
 import kotlinx.coroutines.Dispatchers
@@ -13,15 +14,10 @@ import kotlinx.coroutines.launch
 
 class DetailsViewModel(private val repository: MainRepository): ViewModel() {
     private val movieDetails = MutableLiveData<Resource<Movie>>()
+    private var moviesData = MutableLiveData<Resource<List<MoviesSuggest>>>()
     private val favMovieExist =  MutableLiveData<Boolean>()
-
-    fun getMovies() = moviesData as LiveData<Resource<List<MoviesItem>>>
-    private var moviesData = MutableLiveData<Resource<List<MoviesItem>>>()
-    private lateinit var lastDataToLoad: Pair<Boolean, String>
-    private var pageNumber = 1
     private var cancelLoading = false
 
-    fun observeFavMovieExist() = favMovieExist as LiveData<Boolean>
     fun observeMovieDetails() = movieDetails as LiveData<Resource<Movie>>
     fun observeMovieDetails(id: Int) {
         movieDetails.postValue(Resource.Loading())
@@ -36,24 +32,14 @@ class DetailsViewModel(private val repository: MainRepository): ViewModel() {
         }
     }
 
-    init {
-        moviesCategoryList()
-    }
-
-    fun loadMoreData() {
-        if (!cancelLoading)
-            if (lastDataToLoad.first)
-                moviesCategoryList(lastDataToLoad.second, ++pageNumber)
-    }
-
-    fun moviesCategoryList(category: String = "", page: Int = 1) {
-        lastDataToLoad = Pair(true, category)
+    fun observeMoviesSuggestions() = moviesData as LiveData<Resource<List<MoviesSuggest>>>
+    fun observeMoviesSuggestions(movieid: Int) {
         cancelLoading = true
         moviesData.value = Resource.Loading()
         viewModelScope.launch(Dispatchers.IO) {
-            val result = kotlin.runCatching { repository.getCacheCategory(category, page) }
+            val result = kotlin.runCatching { repository.getSuggestionsCache(movieid) }
             result.onSuccess {
-                checkPageNum(page, result.getOrThrow())
+                moviesData.postValue(Resource.Loaded(result.getOrThrow()))
             }
             result.onFailure {
                 moviesData.postValue(Resource.Error("Error with loading data", null))
@@ -61,14 +47,7 @@ class DetailsViewModel(private val repository: MainRepository): ViewModel() {
         }
     }
 
-    private fun checkPageNum(page: Int, result: List<MoviesItem>) {
-        cancelLoading = false
-        if (page == 1)
-            moviesData.postValue(Resource.Loaded(result))
-        else
-            moviesData.postValue(Resource.NewData(result))
-    }
-
+    fun observeFavMovieExist() = favMovieExist as LiveData<Boolean>
     fun checkMovieFav(id: Int){
         viewModelScope.launch {
             favMovieExist.postValue(repository.checkFavMovieExist(id))

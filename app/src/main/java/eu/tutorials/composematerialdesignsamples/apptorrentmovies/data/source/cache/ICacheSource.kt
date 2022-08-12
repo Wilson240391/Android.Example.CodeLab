@@ -1,8 +1,6 @@
 package eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache
 
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.FavoriteMovie
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesItem
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.*
 
 interface ICacheSource {
 
@@ -18,4 +16,7 @@ interface ICacheSource {
     suspend fun checkFavMovieExist(id: Int): Boolean
 
     suspend fun getRankMovies(limit: Int, page: Int):List<MoviesItem>
+
+    suspend fun saveSuggestMovie(movieSuggest: List<MoviesSuggest>)
+    suspend fun getSuggestionsMovie(id: Int): List<MoviesSuggest>
 }

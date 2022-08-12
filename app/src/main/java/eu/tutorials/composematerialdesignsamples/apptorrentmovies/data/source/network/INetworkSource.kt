@@ -2,6 +2,7 @@ package eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.n
 
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MovieDetails
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesResponse
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesSuggestResponse
 
 interface INetworkSource {
 
@@ -9,5 +10,6 @@ interface INetworkSource {
     suspend fun getMoviesCategory(category: String, page: Int): MoviesResponse
     suspend fun movieDetails(id: Int): MovieDetails
     suspend fun rankMovies(page: Int): MoviesResponse
+    suspend fun Suggestions(id: Int): MoviesSuggestResponse
 
 }

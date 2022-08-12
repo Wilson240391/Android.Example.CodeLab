@@ -11,19 +11,18 @@ import coil.load
 import com.squareup.picasso.Picasso
 import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesItem
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesSuggest
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.views.explore.ExploreAdapter
 import eu.tutorials.composematerialdesignsamples.databinding.ExploreLayoutRvBinding
 import eu.tutorials.composematerialdesignsamples.databinding.ItemMovieBinding
-import eu.tutorials.composematerialdesignsamples.util.addList
-import eu.tutorials.composematerialdesignsamples.util.distinctList
-import eu.tutorials.composematerialdesignsamples.util.downloadImage
+import eu.tutorials.composematerialdesignsamples.util.*
 import eu.tutorials.composematerialdesignsamples.util.torrents.listeners.AdapterListener
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class SimilarAdapter (private val adapterListener: AdapterListener):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val moviesList: MutableList<MoviesItem> = mutableListOf()
+    private val moviesList: MutableList<MoviesSuggest> = mutableListOf()
     var currentPosition = 0
         private set
 
@@ -48,7 +47,7 @@ class SimilarAdapter (private val adapterListener: AdapterListener):RecyclerView
     inner class ExploreViewHolder(itemView: ItemMovieBinding) : RecyclerView.ViewHolder(itemView.root) {
         val nameMovieTv = itemView.nameMovieTv
         var ivMovie = itemView.ivMovie
-        fun bind(movie: MoviesItem) = with(itemView) {
+        fun bind(movie: MoviesSuggest) = with(itemView) {
             with(movie) {
                 nameMovieTv.text = movie.title
                 ivMovie.apply {
@@ -65,13 +64,13 @@ class SimilarAdapter (private val adapterListener: AdapterListener):RecyclerView
         }
     }
 
-    fun addList(list: List<MoviesItem>) {
-        this.moviesList.addList(list)
+    fun addList(list: List<MoviesSuggest>) {
+        this.moviesList.addListSugg(list)
         notifyDataSetChanged()
     }
 
-    fun updateList(list: List<MoviesItem>) {
-        GlobalScope.launch { moviesList.distinctList(list) }
+    fun updateList(list: List<MoviesSuggest>) {
+        GlobalScope.launch { moviesList.distinctListSugge(list) }
         notifyItemInserted(moviesList.size)
     }
 

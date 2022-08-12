@@ -17,4 +17,6 @@ val cacheModule = module {
     single { get<MoviesDatabase>().getMoviesDao() }
 
     single { get<MoviesDatabase>().getFavoriteDao() }
+
+    single { get<MoviesDatabase>().getMovieSuggestDao() }
 }

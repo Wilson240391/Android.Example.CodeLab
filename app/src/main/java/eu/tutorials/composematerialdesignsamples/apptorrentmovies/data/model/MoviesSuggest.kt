@@ -6,21 +6,21 @@ import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
 import java.util.*
 
-data class MoviesResponse(
+data class MoviesSuggestResponse(
 	@field:SerializedName("status_message") val statusMessage: String? = null,
-	@field:SerializedName("data") val data: Data? = null,
-	@field:SerializedName("@meta") val meta: Meta? = null,
+	@field:SerializedName("data") val data: DataSuggest? = null,
+	@field:SerializedName("@meta") val meta: MetaSuggest? = null,
 	@field:SerializedName("status") val status: String? = null
 )
 
-data class Data(
-	@field:SerializedName("movies") val movies: List<MoviesItem> = emptyList(),
+data class DataSuggest(
+	@field:SerializedName("movies") val movies: List<MoviesSuggest> = emptyList(),
 	@field:SerializedName("page_number") val pageNumber: Int? = null,
 	@field:SerializedName("movie_count") val movieCount: Int? = null,
 	@field:SerializedName("limit") val limit: Int? = null
 )
 
-data class Meta(
+data class MetaSuggest(
 	@field:SerializedName("server_time") val serverTime: Int? = null,
 	@field:SerializedName("server_timezone") val serverTimezone: String? = null,
 	@field:SerializedName("api_version") val apiVersion: Int? = null,
@@ -28,7 +28,8 @@ data class Meta(
 )
 
 @Entity
-data class MoviesItem(
+data class MoviesSuggest(
+	@field:SerializedName("movieid") var movieId: Int?,
 	@field:SerializedName("small_cover_image") @ColumnInfo(name = "small_cover_image") val smallCoverImage: String?,
 	@ColumnInfo(name = "category") var category: String? = "",
 	@ColumnInfo(name = "timeSaved") var timeSaved: Long ,
@@ -59,15 +60,3 @@ data class MoviesItem(
 	@field:SerializedName("medium_cover_image") @ColumnInfo(name = "medium_cover_image") val mediumCoverImage: String?
 )
 
-data class TorrentsItem(
-	@field:SerializedName("size_bytes") @ColumnInfo(name = "size_bytes") val sizeBytes: Long? ,
-	@field:SerializedName("size") @ColumnInfo(name = "size") val size: String? ,
-	@field:SerializedName("seeds") @ColumnInfo(name = "seeds") val seeds: Int? ,
-	@field:SerializedName("date_uploaded") @ColumnInfo(name = "date_uploaded") val dateUploaded: String? ,
-	@field:SerializedName("peers") @ColumnInfo(name = "peers") val peers: Int? ,
-	@field:SerializedName("date_uploaded_unix") @ColumnInfo(name = "date_uploaded_unix") val dateUploadedUnix: Int? ,
-	@field:SerializedName("type") @ColumnInfo(name = "type") val type: String? ,
-	@field:SerializedName("url") @ColumnInfo(name = "url") val url: String? ,
-	@field:SerializedName("hash") @ColumnInfo(name = "hash") val hash: String? ,
-	@field:SerializedName("quality") @ColumnInfo(name = "quality") val quality: String?
-)

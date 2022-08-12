@@ -79,6 +79,7 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
         sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
         viewModel = getViewModel()
         viewModel.observeMovieDetails(args.movieId)
+        viewModel.observeMoviesSuggestions(args.movieId)
         viewModel.checkMovieFav(args.movieId)
         mbindig.detailsMovieCover.transitionName = resources.getString(R.string.transitionName)
         observeObservers()
@@ -106,21 +107,17 @@ class DetailsFragment : Fragment(), YouTubePlayer.OnFullscreenListener, KoinComp
                 }
             }
         })
-        viewModel.getMovies().observe(viewLifecycleOwner, Observer { dataObserve ->
+        viewModel.observeMoviesSuggestions().observe(viewLifecycleOwner, Observer { dataObserve ->
             when (dataObserve) {
                 is Resource.Loaded -> {
                     mbindig.similarLayout.rvsuggestions.show()
                     with(dataObserve.data) {
                         similarAdapter.addList(this!!)
-                        for(i in this)
-                            println("Loaded======> ${i.timeSaved}")
                     }
                 }
                 is Resource.NewData -> {
                     with(dataObserve.data) {
                         similarAdapter.updateList(this!!)
-                        for(i in this)
-                            println("NewData======> ${i.timeSaved}")
                     }
                 }
             }

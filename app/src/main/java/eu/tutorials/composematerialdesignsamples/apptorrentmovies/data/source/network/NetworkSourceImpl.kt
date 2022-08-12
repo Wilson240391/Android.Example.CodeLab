@@ -2,6 +2,7 @@ package eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.n
 
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MovieDetails
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesResponse
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesSuggestResponse
 
 class NetworkSourceImpl(private val apiService: ApiService):
     INetworkSource {
@@ -17,4 +18,7 @@ class NetworkSourceImpl(private val apiService: ApiService):
 
     override suspend fun rankMovies(page: Int): MoviesResponse =
         apiService.getRankMovies(page)
+
+    override suspend fun Suggestions(id: Int): MoviesSuggestResponse =
+        apiService.getSuggestions(id)
 }

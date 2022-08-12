@@ -18,6 +18,7 @@ import eu.tutorials.composematerialdesignsamples.R
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.FavoriteMovie
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesItem
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesSuggest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -154,6 +155,17 @@ suspend fun MutableList<MoviesItem>.distinctList(list: List<MoviesItem>) {
     }
 }
 
+suspend fun MutableList<MoviesSuggest>.distinctListSugge(list: List<MoviesSuggest>) {
+    withContext(Dispatchers.IO) {
+        this@distinctListSugge.apply {
+            addAll(list)
+            val desList = distinctBy { it.id }
+            clear()
+            addAll(desList)
+        }
+    }
+}
+
 fun List<MoviesItem>.changeCategory(category: String) {
     for (i in this) {
         i.category = category
@@ -174,6 +186,24 @@ fun MutableList<MoviesItem>.addList(list: List<MoviesItem>) {
     this.apply {
         clear()
         addAll(list)
+    }
+}
+
+fun MutableList<MoviesSuggest>.addListSugg(list: List<MoviesSuggest>) {
+    this.apply {
+        clear()
+        addAll(list)
+    }
+}
+
+
+fun <T> MutableList<T>.mapInPlace(mutator: (T) -> (T)) {
+    this.forEachIndexed { i, value ->
+        val changedValue = mutator(value)
+
+        if (value != changedValue) {
+            this[i] = changedValue
+        }
     }
 }
 

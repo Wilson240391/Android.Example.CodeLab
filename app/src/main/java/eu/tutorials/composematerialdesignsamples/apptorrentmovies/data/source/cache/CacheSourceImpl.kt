@@ -1,11 +1,12 @@
 package eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache
 
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.FavoriteMovie
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesItem
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.*
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache.Dao.FavoriteDao
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache.Dao.MoviesDao
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache.Dao.MoviesSuggestDao
 
 
-class CacheSourceImpl(private val moviesDao: MoviesDao,  private val favoriteDao: FavoriteDao) : ICacheSource {
+class CacheSourceImpl(private val moviesDao: MoviesDao, private val favoriteDao: FavoriteDao, private val moviesSuggestDao: MoviesSuggestDao) : ICacheSource {
 
     override suspend fun getCacheMoviesList(category: String, limit: Int, page: Int): List<MoviesItem> =
         moviesDao.getAllMovies(category, limit, page)
@@ -36,4 +37,10 @@ class CacheSourceImpl(private val moviesDao: MoviesDao,  private val favoriteDao
 
     override suspend fun getRankMovies(limit: Int, page: Int): List<MoviesItem>  =
         moviesDao.getTopRankMovies(limit, page)
+
+    override suspend fun saveSuggestMovie(list: List<MoviesSuggest>) =
+        moviesSuggestDao.saveSuggestMovie(list)
+
+    override suspend fun getSuggestionsMovie(id: Int): List<MoviesSuggest> =
+        moviesSuggestDao.getSuggestMovie(id)
 }
