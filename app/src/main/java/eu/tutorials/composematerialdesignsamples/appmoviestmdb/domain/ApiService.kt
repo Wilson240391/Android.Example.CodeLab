@@ -3,7 +3,7 @@ package eu.tutorials.composematerialdesignsamples.appmoviestmdb.domain
 import com.google.gson.GsonBuilder
 import eu.tutorials.composematerialdesignsamples.appmoviestmdb.data.model.MovieList
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesResponse
-import eu.tutorials.composematerialdesignsamples.util.Constants
+import eu.tutorials.composematerialdesignsamples.util.tmdb.Constants
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
