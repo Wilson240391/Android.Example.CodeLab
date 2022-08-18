@@ -5,9 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.Movie
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesItem
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesSuggest
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.MainRepository
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.domain.MainRepository
 import eu.tutorials.composematerialdesignsamples.util.torrents.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -15,6 +15,7 @@ import eu.tutorials.composematerialdesignsamples.views.screens.*
 import eu.tutorials.composematerialdesignsamples.views.screens.Movies.HomeScreen
 import eu.tutorials.composematerialdesignsamples.views.screens.splash.SplashScreen
 import eu.tutorials.composematerialdesignsamples.views.screens.xml.Countries.NavCountries
+import eu.tutorials.composematerialdesignsamples.views.screens.xml.TMDBMovies.NavTMDBMovies
 import eu.tutorials.composematerialdesignsamples.views.screens.xml.TorrentMovies.NavTorrentMovies
 import eu.tutorials.composematerialdesignsamples.views.screens.xml.videos.NavVideos
 
@@ -99,6 +100,9 @@ fun setupNavGraph(navController: NavHostController, scrollState: ScrollState,
         }
         composable(DrawerMenuData.TorrentMovies.route) {
             NavTorrentMovies()
+        }
+        composable(DrawerMenuData.TMDBMovies.route) {
+            NavTMDBMovies()
         }
 
     }

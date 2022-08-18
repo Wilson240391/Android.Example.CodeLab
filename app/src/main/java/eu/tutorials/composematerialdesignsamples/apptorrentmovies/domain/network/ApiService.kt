@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.network
+package eu.tutorials.composematerialdesignsamples.apptorrentmovies.domain.network
 
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MovieDetails
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.MoviesResponse

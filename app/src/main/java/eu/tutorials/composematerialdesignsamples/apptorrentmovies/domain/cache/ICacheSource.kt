@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache
+package eu.tutorials.composematerialdesignsamples.apptorrentmovies.domain.cache
 
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.*
 

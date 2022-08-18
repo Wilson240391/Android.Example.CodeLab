@@ -1,7 +1,7 @@
 package eu.tutorials.composematerialdesignsamples.di.torrent
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.network.ApiService
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.domain.network.ApiService
 import eu.tutorials.composematerialdesignsamples.util.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

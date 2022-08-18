@@ -14,7 +14,9 @@
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable-v24/ic_menu.xml" value="0.1" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable-v24/preview_background.xml" value="0.114" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/bg_tv_rank.xml" value="0.1155" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/gradient.xml" value="0.19" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/gradient_bg.xml" value="0.114" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/gradient_bg_top.xml" value="0.19" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_baseline_folder_special_24.xml" value="0.1155" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_crown.xml" value="0.114" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/ic_crown_rank.xml" value="0.107" />
@@ -28,6 +30,7 @@
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/drawable/search_bar_shape.xml" value="0.107" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/activity_country.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/activity_player.xml" value="0.1983695652173913" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/activity_tmdbmovie.xml" value="0.291970802919708" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/activity_torrent.xml" value="0.16799999999999998" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/activity_videos.xml" value="0.10989583333333333" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/attr.xml" value="0.12158054711246201" />
@@ -71,6 +74,13 @@
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/quality_card_view_shape.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/screen_shot_movie_rv.xml" value="0.25" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/search_bar_shape.xml" value="0.25" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/tmdb_activity_movie.xml" value="0.1" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/tmdb_fragment_details.xml" value="0.264" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/tmdb_fragment_details_item.xml" value="0.20427350427350427" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/tmdb_fragment_movie.xml" value="0.291970802919708" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/tmdb_movie_rated_row.xml" value="0.20512820512820512" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/tmdb_popular_movie_row.xml" value="0.20512820512820512" />
+        <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/layout/tmdb_upcoming_movie_row.xml" value="0.20512820512820512" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/menu/bottom_nav_items.xml" value="0.10989583333333333" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/menu/expanded_controller.xml" value="0.15555555555555556" />
         <entry key="..\:/Android/Exercise/Android.Example.CodeLab/app/src/main/res/menu/fragment_library_menu.xml" value="0.25" />

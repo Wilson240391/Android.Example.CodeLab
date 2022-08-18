@@ -1,4 +1,4 @@
-package eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache.Dao
+package eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source
 
 
 import androidx.room.*

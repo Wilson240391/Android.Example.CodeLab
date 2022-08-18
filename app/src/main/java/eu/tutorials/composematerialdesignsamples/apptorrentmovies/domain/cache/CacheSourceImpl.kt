@@ -1,12 +1,13 @@
-package eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache
+package eu.tutorials.composematerialdesignsamples.apptorrentmovies.domain.cache
 
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.*
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache.Dao.FavoriteDao
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache.Dao.MoviesDao
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache.Dao.MoviesSuggestDao
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.FavoriteDao
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.MoviesDao
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.MoviesSuggestDao
 
 
-class CacheSourceImpl(private val moviesDao: MoviesDao, private val favoriteDao: FavoriteDao, private val moviesSuggestDao: MoviesSuggestDao) : ICacheSource {
+class CacheSourceImpl(private val moviesDao: MoviesDao, private val favoriteDao: FavoriteDao, private val moviesSuggestDao: MoviesSuggestDao) :
+    ICacheSource {
 
     override suspend fun getCacheMoviesList(category: String, limit: Int, page: Int): List<MoviesItem> =
         moviesDao.getAllMovies(category, limit, page)

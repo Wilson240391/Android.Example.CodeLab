@@ -1,8 +1,8 @@
-package eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source
+package eu.tutorials.composematerialdesignsamples.apptorrentmovies.domain
 
 import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.model.*
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache.ICacheSource
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.network.INetworkSource
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.domain.cache.ICacheSource
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.domain.network.INetworkSource
 import eu.tutorials.composematerialdesignsamples.util.changeCategory
 import eu.tutorials.composematerialdesignsamples.util.convertToFavorite
 

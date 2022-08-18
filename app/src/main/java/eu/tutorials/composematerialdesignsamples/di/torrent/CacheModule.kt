@@ -1,7 +1,7 @@
 package eu.tutorials.composematerialdesignsamples.di.torrent
 
 import androidx.room.Room
-import eu.tutorials.composematerialdesignsamples.apptorrentmovies.data.source.cache.MoviesDatabase
+import eu.tutorials.composematerialdesignsamples.apptorrentmovies.domain.cache.MoviesDatabase
 import eu.tutorials.composematerialdesignsamples.util.Constants
 import org.koin.dsl.module
 
